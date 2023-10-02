@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "python debugger",
+				"type": "python",
+				"request": "launch",
+				"program": "${fileDirname}/${fileBasenameNoExtension}.py",
+				"console": "integratedTerminal",
+				"cwd": "${workspaceFolder}"
+
+			}
+		]
+	}
+}
