@@ -62,7 +62,7 @@ def is_eeg(col_name):
     pass  # replace this with your code
 
 
-def plot_eeg_data(data_df):
+def plot_eeg_data(data_df, file_name):
     """ Plots all EEG channel data found in the pandas dataframe
     <data_df> with respect to time.
 
@@ -78,7 +78,7 @@ def plot_eeg_data(data_df):
     for col_name in data_df.columns.values:
         # plot EEG channel 1 on the first subplot, and so on
         if col_name.startswith(EEG_CHANNEL_PREFIX):
-            ax[plot_idx].plot(data_df[col_name], color=EEG_CHANNEL_COLORS[col_name[-1]])
+            ax[plot_idx].plot(data_df[col_name][500:], color=EEG_CHANNEL_COLORS[col_name[-1]])
             plot_idx += 1
 
 
@@ -88,15 +88,19 @@ def plot_eeg_data(data_df):
     fig.subplots_adjust(top=0.95, bottom=0.05)
     plt.xlabel("Time (HH:MM:SS)", fontsize=20)
     plt.rcParams['text.usetex'] = True
-    fig.text(0.06, 0.5, 'Recorded Signal ($\mu$V)', va='center', rotation='vertical', fontsize=20)
+    #fig.text(0.06, 0.5, 'Recorded Signal ($\mu$V)', va='center', rotation='vertical', fontsize=20)
     plt.show()
+    plt.savefig(file_name.replace(".txt", ".png"))
     plt.rcParams['text.usetex'] = False
 
 
 if __name__ == "__main__":
-    data_df = load_recording_file("sample_data.txt")
+    for mode in ["open", "closed"]:
+        for i in range(1, 4):
+            file_name = f"{mode}_{i}.txt"
+            data_df = load_recording_file(file_name)
 
-    pd.set_option('display.max_columns', None)
-    print(data_df)
+            pd.set_option('display.max_columns', None)
+            print(data_df)
 
-    plot_eeg_data(data_df)
+            plot_eeg_data(data_df, file_name)
