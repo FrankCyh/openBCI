@@ -45,7 +45,7 @@ def construct_mne(data_df):
     """
     
      # Convert column name from "eeg ch<num>" to dict key in `ELECTRODE_MONTAGE`
-    eeg_data = data_df[[f"eeg ch{x}" for x in range(1, 9)]]
+    eeg_data = data_df[[f"eeg ch{x}" for x in range(1, 9)]][500:]
     renamed_eeg_data = eeg_data.rename(columns=dict(zip(eeg_data.columns, ELECTRODE_MONTAGE.keys()))).values.T
 
     # Create an MNE Info object with channel names and sampling rate
@@ -72,7 +72,7 @@ def construct_mne(data_df):
     return mne_raw_obj
 
 
-def show_psd(data_mne, fmin=0, fmax=np.inf, file_name=None):
+def show_psd(data_mne, fmin=0, fmax=np.inf, file_name=None, picks=None):
     """ Plots the power spectral density of the EEG signals in
     `data_mne`, limiting the range of the horizontal axis of the plot to
     [fmin, fmax].
@@ -82,10 +82,10 @@ def show_psd(data_mne, fmin=0, fmax=np.inf, file_name=None):
     fmax: upper end of horizontal axis range
     """
     # Compute the power spectral density of the EEG signals
-    spectrum = data_mne.compute_psd(fmin=fmin, fmax=fmax) # https://mne.tools/dev/generated/mne.io.Raw.html#mne.io.Raw.compute_psd
+    spectrum = data_mne.compute_psd(fmin=fmin, fmax=fmax, picks=picks) # https://mne.tools/dev/generated/mne.io.Raw.html#mne.io.Raw.compute_psd
 
     # Plot the power spectral density
-    plt = spectrum.plot() # https://mne.tools/dev/generated/mne.time_frequency.Spectrum.html#mne.time_frequency.Spectrum.plot
+    plt = spectrum.plot(picks=picks) # https://mne.tools/dev/generated/mne.time_frequency.Spectrum.html#mne.time_frequency.Spectrum.plot
     if file_name:
         #plt.ylim([110, 170]) # limit y-axis to [110, 170] for lab3
         # error: 'MNELineFigure' object has no attribute 'ylim'
@@ -125,13 +125,15 @@ def plot_spectrum_from_lab2():
             file_name = f"{mode}_{i}.txt"
             data_df = lab2.load_recording_file(file_name)
             data_mne = construct_mne(data_df)
+            data_mne = filter_band_pass(data_mne, band_start=0, band_stop=30)
+            data_mne = filter_notch_60(data_mne)
             show_psd(
                 data_mne,
                 fmin=0,
-                fmax=20, # only looking for 10Hz
+                fmax=30, # only looking for 10Hz
                 file_name=file_name,
+                picks=["C3", "O2", "O1"] # Plotting O1 and O2 at the same time have problems
             )
-            
 
 
 if __name__ == "__main__":
@@ -145,7 +147,3 @@ if __name__ == "__main__":
     plot_spectrum_from_lab2()
     
     print("Done")
-    
-    
-
-    # TODO: add code here to show power spectral density plots
