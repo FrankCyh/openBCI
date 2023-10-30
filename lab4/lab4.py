@@ -43,7 +43,7 @@ def load_recording_file_lab4(
     # Set the name of the pandas DataFrame’s columns as ['FP1', 'FP2', 'C3', 'C4', 'P7', 'P8', 'O1', 'O2'] in that specific order.
     data_df.columns = ELECTRODE_NAMES
 
-    return data_df
+    return data_df[500:]
 
 ## 2. Convert the DataFrame to a numpy array and Create an MNE RawArray
 def construct_mne_from_df(
