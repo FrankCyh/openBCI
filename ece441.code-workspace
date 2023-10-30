@@ -8,6 +8,9 @@
 		"git.ignoreLimitWarning": true,
 		"python.defaultInterpreterPath": "/Users/frank.c/Code/BCI/ece441/ece441_venv/bin/python3.9",
 		"cSpell.enabled": false,
+		"[python]": {
+			"editor.defaultFormatter": "ms-python.autopep8"
+		},
 	},
 	"launch": {
 		"version": "0.2.0",
@@ -18,7 +21,8 @@
 				"request": "launch",
 				"program": "${fileDirname}/${fileBasenameNoExtension}.py",
 				"console": "integratedTerminal",
-				"cwd": "${workspaceFolder}"
+				"cwd": "${workspaceFolder}",
+				"justMyCode": false,
 			}
 		]
 	}

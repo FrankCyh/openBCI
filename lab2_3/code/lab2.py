@@ -1,7 +1,9 @@
 import pandas as pd
+import sys
 import matplotlib.pyplot as plt
 
 import os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import lab2_utils as utils
 
 ## Defined constants used to load in the .txt EEG files
