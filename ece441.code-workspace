@@ -22,7 +22,7 @@
 				"program": "${fileDirname}/${fileBasenameNoExtension}.py",
 				"console": "integratedTerminal",
 				"cwd": "${workspaceFolder}",
-				"justMyCode": false,
+				// "justMyCode": false,
 			}
 		]
 	}
