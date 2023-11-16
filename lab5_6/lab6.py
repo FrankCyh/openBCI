@@ -4,7 +4,7 @@ import numpy as np
 from matplotlib.animation import FuncAnimation
 
 # Neurofeedback threshold
-threshold = 0.7  # Adjust the threshold as needed
+threshold = 1  # Adjust the threshold as needed, original 0.7
 
 # Set up the plot
 fig, ax = plt.subplots()

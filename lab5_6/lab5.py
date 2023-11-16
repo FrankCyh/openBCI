@@ -1,8 +1,12 @@
+import datetime
 import enum
+import logging
 import time
-from brainflow import BoardShim, BrainFlowInputParams, BoardIds
-from brainflow.data_filter import DataFilter, WindowOperations, DetrendOperations
+
 import numpy as np
+from brainflow import BoardIds, BoardShim, BrainFlowInputParams
+from brainflow.data_filter import (DataFilter, DetrendOperations,
+                                   WindowOperations)
 
 
 def calculate_alpha_beta_ratio(
@@ -55,16 +59,17 @@ def calculate_alpha_beta_ratio(
         #$ Initialize the alpha-beta ratio array
         alpha_beta_ratio = np.zeros((NUM_TIMESTAMP, len(eeg_channel_l),))
 
-        print(f"Timestamp {timestamp}".center(40, "="))
+        logging.info(f"Timestamp {timestamp}".center(40, "="))
         for i, eeg_channel in enumerate(eeg_channel_l):
             data_filter_obj = DataFilter()
             data_filter_obj.detrend(data[i], DetrendOperations.LINEAR.value) # initialize a DataFilter object with the detrend() method
             power_spectrum = data_filter_obj.get_psd_welch(
                 data=data[i],
-                nfft=sampling_rate_in_pow_2, # sampling_rate_in_pow_2
-                overlap=sampling_rate_in_pow_2 // 2, # sampling_rate_in_pow_2 // 2
+                nfft=sampling_rate_in_pow_2 // 2, # sampling_rate_in_pow_2
+                # using `sampling_rate_in_pow_2` sometimes results in error, dividing it by 2 solve error
+                overlap=sampling_rate_in_pow_2 // 4, # sampling_rate_in_pow_2 // 2
                 sampling_rate=broad_sampling_rate,
-                window=WindowOperations.HANNING.value
+                window=WindowOperations.HANNING.value,
             ) # calculate the power spectrum
 
             # Extract the power of the alpha and beta bands
@@ -79,9 +84,9 @@ def calculate_alpha_beta_ratio(
                 freq_end=30,
             )
             alpha_beta_ratio[timestamp][i] = alpha_power / beta_power
-            print(f"Alpha beta ratio for channel {eeg_channel} is {alpha_beta_ratio[timestamp][i]}")
-        print(f"Average alpha beta ratio is {np.mean(alpha_beta_ratio[timestamp][~np.isnan(alpha_beta_ratio[timestamp])])}")
-        print("\n")
+            logging.info(f"Alpha beta ratio for channel {eeg_channel} is {round(alpha_beta_ratio[timestamp][i], 2)}")
+        logging.info(f"Average alpha beta ratio is {round(np.mean(alpha_beta_ratio[timestamp][~np.isnan(alpha_beta_ratio[timestamp])]), 2)}")
+        logging.info("\n")
         timestamp += 1
 
     # Check the status of the session using the is_prepared() method from the board object (created in step 4.a), and stop streaming using the release_session() method.
@@ -91,4 +96,20 @@ def calculate_alpha_beta_ratio(
 
     return np.mean(alpha_beta_ratio)
 
-calculate_alpha_beta_ratio("/dev/cu.usbserial-DP04VYIB")
+## Set logging configuration
+logging.basicConfig(
+    level=logging.INFO,
+    filename=f'{datetime.datetime.now().strftime("%m-%d_%H-%M")}.log',
+    filemode='w',
+    datefmt='%m-%d-%H:%M:%S',
+    format='[%(asctime)s] %(name)s - %(funcName)-15s - %(levelname)-7s - %(message)s'
+)
+
+#$ log to console
+console = logging.StreamHandler()
+console.setLevel(logging.DEBUG)
+console.setFormatter(logging.Formatter('%(message)s'))
+logging.getLogger().addHandler(console)
+
+#calculate_alpha_beta_ratio("/dev/cu.usbserial-DP04VYIB") # channel 16?
+calculate_alpha_beta_ratio("/dev/cu.usbserial-DP04WG3B") # channel 12
