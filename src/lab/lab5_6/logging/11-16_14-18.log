@@ -1,0 +1,516 @@
+[16  14:18:40] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 0===============
+[16  14:18:40] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7612900099421753
+[16  14:18:40] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 3.2536935741846658
+[16  14:18:40] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 0.31652013291257736
+[16  14:18:40] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.9737365506817394
+[16  14:18:40] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 2.3754244113148837
+[16  14:18:40] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 2.8804240537314674
+[16  14:18:40] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.28019232863568927
+[16  14:18:40] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 1.8659316228416516
+[16  14:18:40] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.7134015855306062
+[16  14:18:40] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:18:41] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 1===============
+[16  14:18:41] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7490854148321056
+[16  14:18:41] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 2.3374241733587287
+[16  14:18:41] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 1.9847725763813926
+[16  14:18:41] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.8534382064049061
+[16  14:18:41] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 0.8237105989244173
+[16  14:18:41] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 1.7592106926426274
+[16  14:18:41] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.5419186619917624
+[16  14:18:41] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 1.7209827000603988
+[16  14:18:41] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.4713178780745424
+[16  14:18:41] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:18:42] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 2===============
+[16  14:18:42] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7486992148560732
+[16  14:18:42] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 0.43863762682221313
+[16  14:18:42] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 0.3612324854249877
+[16  14:18:42] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.3813002079070619
+[16  14:18:42] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 0.5044992545149628
+[16  14:18:42] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.30058107404659173
+[16  14:18:42] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.3018861391159593
+[16  14:18:42] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 1.7729503551903258
+[16  14:18:42] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 0.726223294734772
+[16  14:18:42] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:18:43] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 3===============
+[16  14:18:43] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.753254534690923
+[16  14:18:43] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 7.056501192123575
+[16  14:18:43] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 2.544114623268159
+[16  14:18:43] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 3.9139403351869912
+[16  14:18:43] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 3.4754541723819186
+[16  14:18:43] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 2.2577287311216754
+[16  14:18:43] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.7554180079190356
+[16  14:18:43] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.5870629300742249
+[16  14:18:43] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 2.792934315845813
+[16  14:18:43] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:18:44] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 4===============
+[16  14:18:44] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.758908111538289
+[16  14:18:44] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 1.7673006674919252
+[16  14:18:44] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 2.7530176003546702
+[16  14:18:44] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 2.535681497707867
+[16  14:18:44] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 2.3777018525509486
+[16  14:18:44] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 1.3280766176948053
+[16  14:18:44] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 1.0094453519570197
+[16  14:18:44] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.9610809506613304
+[16  14:18:44] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.8114015812446067
+[16  14:18:44] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:18:45] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 5===============
+[16  14:18:45] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7655134561292967
+[16  14:18:45] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 1.023088328407941
+[16  14:18:45] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 0.7306012292287724
+[16  14:18:45] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.9440344343015836
+[16  14:18:45] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 2.127041548995622
+[16  14:18:45] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.9819740074503316
+[16  14:18:45] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 1.147941269742874
+[16  14:18:45] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 3.672289735799796
+[16  14:18:45] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.549060501257027
+[16  14:18:45] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:18:46] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 6===============
+[16  14:18:46] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7691618415872754
+[16  14:18:46] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 1.5106074481630694
+[16  14:18:46] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 1.6393477892495874
+[16  14:18:46] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.6956366381943337
+[16  14:18:46] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 1.1367048274167617
+[16  14:18:46] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.5606909960534835
+[16  14:18:46] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.6396515375200001
+[16  14:18:46] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.5860182708235063
+[16  14:18:46] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.0672274186260022
+[16  14:18:46] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:18:47] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 7===============
+[16  14:18:47] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7706587676676793
+[16  14:18:47] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 0.7466268847890092
+[16  14:18:47] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 0.7569365423257316
+[16  14:18:47] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.32140421562051075
+[16  14:18:47] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 0.37172976074928643
+[16  14:18:47] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.3281608646160966
+[16  14:18:47] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.3489922254490156
+[16  14:18:47] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.6250599900793746
+[16  14:18:47] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 0.6586961564120879
+[16  14:18:47] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:18:48] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 8===============
+[16  14:18:48] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7702635107286795
+[16  14:18:48] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 1.7822975891451838
+[16  14:18:48] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 1.1604336493737961
+[16  14:18:48] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.4297767552228176
+[16  14:18:48] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 1.561171083309959
+[16  14:18:48] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 1.1891299760614715
+[16  14:18:48] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 2.5371667397577675
+[16  14:18:48] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.6820901814853657
+[16  14:18:48] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.3890411856356302
+[16  14:18:48] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:18:49] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 9===============
+[16  14:18:49] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7683842845544078
+[16  14:18:49] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 0.9440027505222713
+[16  14:18:49] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 1.0564969547786789
+[16  14:18:49] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.48650275409382654
+[16  14:18:49] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 1.5550710096905977
+[16  14:18:49] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.26707798168973446
+[16  14:18:49] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 1.186514515689366
+[16  14:18:49] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.9694241092773769
+[16  14:18:49] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.0291842950370325
+[16  14:18:49] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:18:50] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 10==============
+[16  14:18:50] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7641107226857677
+[16  14:18:50] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 3.6737880133441254
+[16  14:18:50] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 0.9521687114898421
+[16  14:18:50] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 1.8581386306463323
+[16  14:18:50] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 1.4189824882248854
+[16  14:18:50] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 1.0040645542691184
+[16  14:18:50] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.9889376163428252
+[16  14:18:50] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 2.0444255700181357
+[16  14:18:50] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.713077038377629
+[16  14:18:50] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:18:51] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 11==============
+[16  14:18:51] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7576881097839883
+[16  14:18:51] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 1.573745059581148
+[16  14:18:51] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 1.906067792208964
+[16  14:18:51] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 1.4501797773853038
+[16  14:18:51] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 0.6594986281540394
+[16  14:18:51] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 2.2124258666291436
+[16  14:18:51] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.8419117025016264
+[16  14:18:51] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 1.7782442437625376
+[16  14:18:51] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.522470147500844
+[16  14:18:51] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:18:52] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 12==============
+[16  14:18:52] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7573019430923413
+[16  14:18:52] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 2.1784264134148312
+[16  14:18:52] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 0.8459382061489608
+[16  14:18:52] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 1.4413863077600972
+[16  14:18:52] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 2.305241065437948
+[16  14:18:52] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.7348770218120071
+[16  14:18:52] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.8632583282515097
+[16  14:18:52] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.34526596152797645
+[16  14:18:52] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.3089619059307092
+[16  14:18:52] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:18:53] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 13==============
+[16  14:18:53] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7625115222654217
+[16  14:18:53] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 1.752540200832672
+[16  14:18:53] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 1.576919408893327
+[16  14:18:53] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.924958228833099
+[16  14:18:53] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 0.5343431981586619
+[16  14:18:53] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.4873665174389056
+[16  14:18:53] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.4637740208297791
+[16  14:18:53] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.42107625281603595
+[16  14:18:53] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 0.9904361687584877
+[16  14:18:53] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:18:54] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 14==============
+[16  14:18:54] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7698668612259298
+[16  14:18:54] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 2.4519930292898082
+[16  14:18:54] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 0.842975122299407
+[16  14:18:54] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 2.607022956794814
+[16  14:18:54] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 2.055851699898923
+[16  14:18:54] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.9164518315529584
+[16  14:18:54] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 2.071352367137887
+[16  14:18:54] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 2.1433772528210135
+[16  14:18:54] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.8573613901275927
+[16  14:18:54] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:18:55] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 15==============
+[16  14:18:55] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7743180049616065
+[16  14:18:55] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 0.19312518395643535
+[16  14:18:55] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 1.6051055954270013
+[16  14:18:55] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.9847758180579154
+[16  14:18:55] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 1.0564990019908724
+[16  14:18:55] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.8056973542987057
+[16  14:18:55] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.9070741700106224
+[16  14:18:55] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.5005672565660625
+[16  14:18:55] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 0.9783952981586528
+[16  14:18:55] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:18:56] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 16==============
+[16  14:18:56] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7739580578415135
+[16  14:18:56] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 3.149759647534919
+[16  14:18:56] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 0.7443559078172612
+[16  14:18:56] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.6382094612814878
+[16  14:18:56] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 0.5156318973043029
+[16  14:18:56] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.5694447429868932
+[16  14:18:56] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.45613185034779086
+[16  14:18:56] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 1.4855753541452354
+[16  14:18:56] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.1666333649074256
+[16  14:18:56] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:18:57] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 17==============
+[16  14:18:57] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.770813648022553
+[16  14:18:57] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 0.6653911638094726
+[16  14:18:57] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 0.8235635572806089
+[16  14:18:57] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.31494547023960023
+[16  14:18:57] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 1.0922992349890672
+[16  14:18:57] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.35245317194292203
+[16  14:18:57] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.461705307494758
+[16  14:18:57] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.8647260369675661
+[16  14:18:57] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 0.7932371988433186
+[16  14:18:57] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:18:58] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 18==============
+[16  14:18:58] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7662661079014461
+[16  14:18:58] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 1.582619158691859
+[16  14:18:58] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 2.5082079764994574
+[16  14:18:58] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.643154098028923
+[16  14:18:58] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 1.3867591751840949
+[16  14:18:58] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.4668073751030351
+[16  14:18:58] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.6410817534899328
+[16  14:18:58] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.9860523303895834
+[16  14:18:58] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.2476184969110413
+[16  14:18:58] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:18:59] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 19==============
+[16  14:18:59] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7596909736092328
+[16  14:18:59] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 4.075286116611147
+[16  14:18:59] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 5.272936456658564
+[16  14:18:59] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 2.385692959989813
+[16  14:18:59] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 1.2372517819870517
+[16  14:18:59] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.7425271683117861
+[16  14:18:59] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.3805652644091601
+[16  14:18:59] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.9697519942143386
+[16  14:18:59] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 2.1029628394738866
+[16  14:18:59] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:19:00] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 20==============
+[16  14:19:00] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.759729301964682
+[16  14:19:00] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 1.9176846633996625
+[16  14:19:00] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 2.5194559706939796
+[16  14:19:00] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.9344591840219386
+[16  14:19:00] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 1.6960500766661466
+[16  14:19:00] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.5381718910210643
+[16  14:19:00] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 1.6216984666584502
+[16  14:19:00] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 1.486529592955351
+[16  14:19:00] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.5592223934226594
+[16  14:19:00] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:19:01] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 21==============
+[16  14:19:01] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7623911598330384
+[16  14:19:01] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 0.5879446586238184
+[16  14:19:01] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 0.7430381190833218
+[16  14:19:01] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.8085705927467112
+[16  14:19:01] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 0.4907909281981368
+[16  14:19:01] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.8914711604029073
+[16  14:19:01] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.8856999113002655
+[16  14:19:01] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.996829933879166
+[16  14:19:01] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 0.8958420580084208
+[16  14:19:01] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:19:02] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 22==============
+[16  14:19:02] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7670109998095243
+[16  14:19:02] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 1.1036596005074586
+[16  14:19:02] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 0.8253106287808599
+[16  14:19:02] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.5453521951284567
+[16  14:19:02] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 0.9626034811546883
+[16  14:19:02] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.28671228012926675
+[16  14:19:02] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.6585797656434191
+[16  14:19:02] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 1.532678511949401
+[16  14:19:02] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 0.9602384328878844
+[16  14:19:02] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:19:03] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 23==============
+[16  14:19:03] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7663772801705726
+[16  14:19:03] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 0.8406628916107729
+[16  14:19:03] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 0.49871977675080204
+[16  14:19:03] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 1.3486283792718168
+[16  14:19:03] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 2.6866332712574765
+[16  14:19:03] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.20656349475249924
+[16  14:19:03] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.27238384255576226
+[16  14:19:03] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.7141384998701485
+[16  14:19:03] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.0417634295299814
+[16  14:19:03] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:19:04] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 24==============
+[16  14:19:04] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7677906377362966
+[16  14:19:04] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 1.3984344379169713
+[16  14:19:04] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 1.6786704715166296
+[16  14:19:04] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 1.2889898096997825
+[16  14:19:04] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 0.7981858486087101
+[16  14:19:04] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 2.5240125495572094
+[16  14:19:04] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.4825936195520775
+[16  14:19:04] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.9429363123911907
+[16  14:19:04] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.3602017108723583
+[16  14:19:04] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:19:05] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 25==============
+[16  14:19:05] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.76764638649756
+[16  14:19:05] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 1.4851739720502677
+[16  14:19:05] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 0.6203850635583197
+[16  14:19:05] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.9557764391328489
+[16  14:19:05] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 3.769471147680532
+[16  14:19:05] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.6547939969226306
+[16  14:19:05] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 1.1525264775356538
+[16  14:19:05] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 1.8460296749596312
+[16  14:19:05] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.5314753947921806
+[16  14:19:05] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:19:06] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 26==============
+[16  14:19:06] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.766182024074741
+[16  14:19:06] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 1.1912479796028028
+[16  14:19:06] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 0.8100202100020606
+[16  14:19:06] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.222923366531467
+[16  14:19:06] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 0.7152837825045252
+[16  14:19:06] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.1802142474561813
+[16  14:19:06] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.29951726811662566
+[16  14:19:06] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.22882469698268518
+[16  14:19:06] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 0.6767766969088861
+[16  14:19:06] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:19:07] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 27==============
+[16  14:19:07] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7650226747871853
+[16  14:19:07] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 1.5726512950218616
+[16  14:19:07] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 0.7688886519701035
+[16  14:19:07] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.5979928599131882
+[16  14:19:07] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 1.0694604210917276
+[16  14:19:07] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.5121937775738091
+[16  14:19:07] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.8345103174039519
+[16  14:19:07] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 2.385248321704946
+[16  14:19:07] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.1882460399333468
+[16  14:19:07] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:19:08] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 28==============
+[16  14:19:08] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7609347437685436
+[16  14:19:08] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 0.7555512337589196
+[16  14:19:08] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 1.202067230090401
+[16  14:19:08] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 1.3848664272431002
+[16  14:19:08] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 1.2465512352814918
+[16  14:19:08] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 1.4520379296281594
+[16  14:19:08] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.5408261181984307
+[16  14:19:08] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.7011166830592159
+[16  14:19:08] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.1304939501285327
+[16  14:19:08] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:19:10] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 29==============
+[16  14:19:10] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.758678391235311
+[16  14:19:10] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 1.7967914183030633
+[16  14:19:10] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 1.4825957790274182
+[16  14:19:10] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 3.2795795127345038
+[16  14:19:10] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 1.7686790617594308
+[16  14:19:10] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 1.7230200914779663
+[16  14:19:10] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 1.0133790840346928
+[16  14:19:10] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 1.0457631518784543
+[16  14:19:10] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.7335608113063552
+[16  14:19:10] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:19:11] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 30==============
+[16  14:19:11] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7579968122483434
+[16  14:19:11] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 1.1742320192813205
+[16  14:19:11] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 1.0475924626646451
+[16  14:19:11] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.49826511741734164
+[16  14:19:11] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 0.7342379544410416
+[16  14:19:11] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.5674916989031045
+[16  14:19:11] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.4855181007038625
+[16  14:19:11] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.7991182289916374
+[16  14:19:11] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 0.8830565493314121
+[16  14:19:11] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:19:12] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 31==============
+[16  14:19:12] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7624693819395503
+[16  14:19:12] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 2.017640078427704
+[16  14:19:12] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 4.082708657522425
+[16  14:19:12] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 1.6790975412219213
+[16  14:19:12] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 0.754801826998662
+[16  14:19:12] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 1.4514747999210436
+[16  14:19:12] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.6776516972046487
+[16  14:19:12] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.4154198449328781
+[16  14:19:12] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.605157978521104
+[16  14:19:12] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:19:13] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 32==============
+[16  14:19:13] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7713332921758107
+[16  14:19:13] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 1.0696601926695049
+[16  14:19:13] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 0.56316123292014
+[16  14:19:13] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.45382456732736665
+[16  14:19:13] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 0.71987939180227
+[16  14:19:13] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.3789002153956441
+[16  14:19:13] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.6052340563518411
+[16  14:19:13] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.40888201548333775
+[16  14:19:13] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 0.7463593705157394
+[16  14:19:13] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:19:14] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 33==============
+[16  14:19:14] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7936758134637274
+[16  14:19:14] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 4.549118461571153
+[16  14:19:14] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 4.325910810067227
+[16  14:19:14] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 1.9815057249860806
+[16  14:19:14] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 1.3679852647448827
+[16  14:19:14] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 3.7884569492241043
+[16  14:19:14] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 1.5058176267203212
+[16  14:19:14] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 1.4999408288276228
+[16  14:19:14] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 2.6015514349506397
+[16  14:19:14] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:19:15] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 34==============
+[16  14:19:15] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.8138570087390884
+[16  14:19:15] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 0.7434921326997302
+[16  14:19:15] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 1.6062131768585304
+[16  14:19:15] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.6764136722823858
+[16  14:19:15] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 0.5276677838591699
+[16  14:19:15] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.8856435567677184
+[16  14:19:15] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 1.330064073787896
+[16  14:19:15] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.8018901802326615
+[16  14:19:15] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.0481551981533976
+[16  14:19:15] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:19:16] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 35==============
+[16  14:19:16] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.8316455629522774
+[16  14:19:16] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 1.423032728213032
+[16  14:19:16] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 1.334632617831545
+[16  14:19:16] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.9685474691634522
+[16  14:19:16] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 0.769670841062795
+[16  14:19:16] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.42557837001361465
+[16  14:19:16] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.8772700566109375
+[16  14:19:16] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 1.4619019233937383
+[16  14:19:16] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.136534946155174
+[16  14:19:16] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:19:17] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 36==============
+[16  14:19:17] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.7696899771706907
+[16  14:19:17] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 1.6540679202423465
+[16  14:19:17] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 0.9512741702404008
+[16  14:19:17] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.8630169512785408
+[16  14:19:17] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 2.460608370490893
+[16  14:19:17] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.6037206616544917
+[16  14:19:17] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.41445199331783505
+[16  14:19:17] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 1.3781517541542396
+[16  14:19:17] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.2618727248186796
+[16  14:19:17] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:19:18] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 37==============
+[16  14:19:18] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.6308358178226807
+[16  14:19:18] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 1.7615632907595657
+[16  14:19:18] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 0.7414459185207024
+[16  14:19:18] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.462254143036477
+[16  14:19:18] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 1.3907626185454798
+[16  14:19:18] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.5570479407140017
+[16  14:19:18] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.9415433113886755
+[16  14:19:18] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 1.8732004956780288
+[16  14:19:18] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.1698316920582013
+[16  14:19:18] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:19:19] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 38==============
+[16  14:19:19] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 1.6869585861358773
+[16  14:19:19] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 2.1035071744149745
+[16  14:19:19] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 0.6741371492701594
+[16  14:19:19] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.4909897935974694
+[16  14:19:19] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 0.9669925913925986
+[16  14:19:19] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.38479229093164863
+[16  14:19:19] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.4609815818522995
+[16  14:19:19] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.7825059478301138
+[16  14:19:19] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 0.9438581394281426
+[16  14:19:19] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:19:20] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 39==============
+[16  14:19:20] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 3.3403664595049505
+[16  14:19:20] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 1.2290342835129417
+[16  14:19:20] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 1.6225247330997934
+[16  14:19:20] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 1.892223599947723
+[16  14:19:20] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 1.3671853158847864
+[16  14:19:20] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.690334367895763
+[16  14:19:20] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.8577695420059241
+[16  14:19:20] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.832630588169406
+[16  14:19:20] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 1.479008611252661
+[16  14:19:20] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:19:21] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 40==============
+[16  14:19:21] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 35.497634352287584
+[16  14:19:21] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 1.928328692007234
+[16  14:19:21] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 0.9611398102771203
+[16  14:19:21] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 1.3360402102794944
+[16  14:19:21] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 1.386440176553535
+[16  14:19:21] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.4467065813738106
+[16  14:19:21] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 2.2395172073507394
+[16  14:19:21] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 2.2653019049490446
+[16  14:19:21] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 5.757638616884821
+[16  14:19:21] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:19:22] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 41==============
+[16  14:19:22] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 37.426575990526466
+[16  14:19:22] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 0.5311913612552678
+[16  14:19:22] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 0.5031381181398384
+[16  14:19:22] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.43217223031252266
+[16  14:19:22] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 0.6980743511153059
+[16  14:19:22] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.42944294591552973
+[16  14:19:22] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.28441806486825005
+[16  14:19:22] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.249627227852745
+[16  14:19:22] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 5.069330036248241
+[16  14:19:22] root - calculate_alpha_beta_ratio - INFO    - 
+
+[16  14:19:23] root - calculate_alpha_beta_ratio - INFO    - ==============Timestamp 42==============
+[16  14:19:23] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 1 is 37.426575990526196
+[16  14:19:23] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 2 is 0.37609283066734234
+[16  14:19:23] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 3 is 0.7862634609525895
+[16  14:19:23] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 4 is 0.5974959336820684
+[16  14:19:23] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 5 is 0.7723090238025195
+[16  14:19:23] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 6 is 0.3550394715917964
+[16  14:19:23] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 7 is 0.25930117315896356
+[16  14:19:23] root - calculate_alpha_beta_ratio - INFO    - Alpha beta ratio for channel 8 is 0.6312616119667112
+[16  14:19:23] root - calculate_alpha_beta_ratio - INFO    - Average alpha beta ratio is 5.150542437043523
+[16  14:19:23] root - calculate_alpha_beta_ratio - INFO    - 
+

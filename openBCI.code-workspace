@@ -1,0 +1,35 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true,
+		"python.defaultInterpreterPath": "/Users/frank.c/Code/BCI/openBCI/ece441_venv/bin/python3.9",
+		"cSpell.enabled": false,
+		"[python]": {
+			"editor.defaultFormatter": "ms-python.autopep8"
+		},
+		"files.associations": {
+			"*.txt": "csv",
+		}
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "python debugger",
+				"type": "python",
+				"request": "launch",
+				"program": "${fileDirname}/${fileBasenameNoExtension}.py",
+				"console": "integratedTerminal",
+				"cwd": "${workspaceFolder}",
+				"justMyCode": false,
+				"env": {
+					"src": "${workspaceFolder}/src",
+				}
+			}
+		]
+	}
+}
