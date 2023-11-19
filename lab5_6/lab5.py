@@ -13,7 +13,7 @@ def calculate_alpha_beta_ratio(
     port="/dev/cu.usbserial-DP04VYIB",
 ):
     """
-    calculates the alpha beta ratio
+    Calculates the alpha beta ratio
 
     Arg:
         (port): a string containing the name of the port that will be employed
