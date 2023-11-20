@@ -59,13 +59,14 @@ print(csp_val.shape)
 
 
 # Train CNN
-hyperparams = [1e-05, 3, 5, 2, 1, 10, 1]
-CNN_model = cnn.create_model(hyperparams)
+CNN_model = cnn.create_model()
 CNN_model.save(os.path.join(DIR_NAME, "model_init", "model_motor.h5"))
 CNN_model = load_model(os.path.join(DIR_NAME, "model_init", "model_motor.h5"))
 cnn.train_model(csp_train, y_train, csp_val, y_val, CNN_model, 30, 10)
+CNN_model.save(os.path.join(DIR_NAME, "model_init", "model_motor.h5"))
 
 # Test Data Evalutaion
+CNN_model = load_model(os.path.join(DIR_NAME, "model_init", "model_motor.h5"))
 csp_test = csp_extraction.extract_feature(X_test, csp_filter, filterbanks, time_windows)
 y_test = pd.get_dummies(y_test).values
 
