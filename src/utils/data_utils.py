@@ -1,5 +1,6 @@
 import mne
 import pandas as pd
+
 from utils.database import *
 
 
@@ -29,6 +30,7 @@ def clean_eeg_dataframe(
     data_df = data_df[[col for col in data_df.columns.values if col.startswith("channel")] + ["timestamp", "index"]] # extract only 10 channels of interest
 
     return data_df
+
 
 def get_eeg_from_txt_as_df(
     txt_path: str,

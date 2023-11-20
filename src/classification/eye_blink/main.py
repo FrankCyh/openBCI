@@ -1,10 +1,10 @@
-import sys
 import os
+import sys
 
-from utils.database import *
-from utils.stream_utils import mock_stream
 from utils.data_utils import *
+from utils.database import *
 from utils.mne_utils import *
+from utils.stream_utils import mock_stream
 
 if __name__ == "__main__":
     # Frequency of eye blink is 1 second. Use 0.2 seconds stride to see the pattern

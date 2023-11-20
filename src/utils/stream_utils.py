@@ -2,9 +2,11 @@ import os
 import time
 
 import pandas as pd
+
+from utils.data_utils import *
 from utils.database import *
-from utils.data_utils import clean_eeg_dataframe, get_eeg_from_txt_as_df
 from utils.mne_utils import *
+
 
 def mock_stream(
     txt_path: str,

@@ -2,11 +2,10 @@ import os
 
 import numpy as np
 
-from lab.lab2_3.code.lab2 import NUM_CHANNELS
-
 SAMPLE_RATE = 250  # Sampling rate of data in Hz
 NUM_ROWS_TO_SKIP = 4  # header data in the .txt file
-HOME_DIR = os.path.dirname(__file__)
+
+DATA_DIR = os.path.join(os.environ.get('ROOT_DIR'), "data")
 
 ELECTRODE_MONTAGE_DEFAULT = [
     {
