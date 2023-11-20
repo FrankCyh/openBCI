@@ -89,7 +89,7 @@ def construct_mne_from_df(
 def plot_mne_raw_obj(
     mne_raw_obj: mne.io.RawArray,
     duration=10,
-    scalings=dict(eeg=1e-4), # plot signals that are 400µV peak-to-peak
+    scalings=dict(eeg=200e-6), # plot signals that are 400µV peak-to-peak
     file_name=None,
     file_dir=None,
 ):

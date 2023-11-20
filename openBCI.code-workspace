@@ -10,10 +10,14 @@
 		"cSpell.enabled": false,
 		"[python]": {
 			"editor.defaultFormatter": "ms-python.autopep8"
-		},
+	},
 		"files.associations": {
 			"*.txt": "csv",
-		}
+		},
+		"terminal.integrated.env.osx": { // not useful
+			"PYTHONPATH": "${workspaceFolder}/src/utils",
+			"ROOT_DIR": "${workspaceFolder}",
+		},
 	},
 	"launch": {
 		"version": "0.2.0",
@@ -27,8 +31,9 @@
 				"cwd": "${workspaceFolder}",
 				"justMyCode": false,
 				"env": {
-					"src": "${workspaceFolder}/src",
-				}
+					"ROOT_DIR": "${workspaceFolder}",
+					"PYTHONPATH": "${workspaceFolder}",
+				},
 			}
 		]
 	}
