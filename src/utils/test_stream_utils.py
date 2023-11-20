@@ -65,7 +65,7 @@ def test_mock_motor():
     
     # get a stride and test using pretrained model
     for i in mock_stream(
-        ".\\data\\OpenBCISession_2023-11-16_15-17-12_eye_blink\\OpenBCI-RAW-2023-11-16_15-19-34.txt",
+        os.path.join(DATA_DIR, "OpenBCISession_2023-11-16_15-17-12_eye_blink", "OpenBCI-RAW-2023-11-16_15-19-34.txt"),
         5,  # in training, each data is 5 seconds long, so here in testing should be compatible
         0.5,  # generate a prediction per 0.5 second
     ):
