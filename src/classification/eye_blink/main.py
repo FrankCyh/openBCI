@@ -15,7 +15,7 @@ if __name__ == "__main__":
     ## Print the change of average in each channel
     for data_df in mock_stream(
         os.path.join(
-            os.getenv("ROOT_DIR"),
+            ROOT_DIR,
             "data",
             "OpenBCISession_2023-11-16_15-17-12_eye_blink",
             "OpenBCI-RAW-2023-11-16_15-19-34_cropped.txt"
@@ -35,7 +35,7 @@ if __name__ == "__main__":
     ## Plot the MNE RawArray in separate windows
     for data_df in mock_stream(
         os.path.join(
-            os.getenv("ROOT_DIR"),
+            ROOT_DIR,
             "data",
             "OpenBCISession_2023-11-16_15-17-12_eye_blink",
             "OpenBCI-RAW-2023-11-16_15-19-34_cropped.txt"
@@ -52,7 +52,7 @@ if __name__ == "__main__":
     ## Plot the MNE RawArray in one window
     data_df = get_eeg_from_txt_as_df(
         os.path.join(
-            os.getenv("ROOT_DIR"),
+            ROOT_DIR,
             "data",
             "OpenBCISession_2023-11-16_15-17-12_eye_blink",
             "OpenBCI-RAW-2023-11-16_15-19-34_cropped.txt"

@@ -43,6 +43,30 @@ def construct_mne_from_df(
     return mne_raw_obj
 
 
+def plot_mne_raw_obj(
+    mne_raw_obj: mne.io.RawArray,
+    duration: int = 10,
+    scalings=dict(eeg=200e-6), # plot signals that are 400µV peak-to-peak
+    save_file_name: str = None,
+    save_file_dir: str = None,
+):
+    """ Plots the data from an MNE Raw object, with each EEG channel
+    plotted in a different color.
+
+    mne_raw_obj: an MNE Raw object
+    """
+    plt = mne_raw_obj.plot(
+        duration=duration,
+        scalings=scalings,
+        clipping=None, # Some of the signals are larger than the set scaling, to see the full signal set “clipping=None”.
+    ) # https://mne.tools/stable/generated/mne.io.Raw.html#mne.io.Raw.plot
+    if save_file_name and save_file_dir:
+        assert os.path.exists(save_file_dir)
+        os.chdir(save_file_dir)
+        file_name_png = save_file_name.split('.')[0] + "_raw" + '.png'
+        plt.savefig(file_name_png)
+
+
 def filter_band_pass(
     data_mne: mne.io.RawArray,
     band_start=0.1,
@@ -78,11 +102,13 @@ def filter_notch_60(
     # https://mne.tools/stable/generated/mne.io.Raw.html#mne.io.Raw.notch_filter
 
 
-def show_psd(
+def plot_psd(
     data_mne,
     fmin=0,
     fmax=np.inf,
     picks=None,
+    save_file_name: str = None,
+    save_file_dir: str = None,
 ):
     """ Plots the power spectral density of the EEG signals in
     `data_mne`, limiting the range of the horizontal axis of the plot to
@@ -97,27 +123,8 @@ def show_psd(
 
     # Plot the power spectral density
     plt = spectrum.plot() # https://mne.tools/dev/generated/mne.time_frequency.Spectrum.html#mne.time_frequency.Spectrum.plot
-
-
-def plot_mne_raw_obj(
-    mne_raw_obj: mne.io.RawArray,
-    duration: int = 10,
-    scalings=dict(eeg=200e-6), # plot signals that are 400µV peak-to-peak
-    save_file_name: str = None,
-    save_file_dir: str = None,
-):
-    """ Plots the data from an MNE Raw object, with each EEG channel
-    plotted in a different color.
-
-    mne_raw_obj: an MNE Raw object
-    """
-    plt = mne_raw_obj.plot(
-        duration=duration,
-        scalings=scalings,
-        clipping=None, # Some of the signals are larger than the set scaling, to see the full signal set “clipping=None”.
-    ) # https://mne.tools/stable/generated/mne.io.Raw.html#mne.io.Raw.plot
     if save_file_name and save_file_dir:
         assert os.path.exists(save_file_dir)
         os.chdir(save_file_dir)
-        file_name_png = save_file_name.split('.')[0] + "_raw" + '.png'
+        file_name_png = save_file_name.split('.')[0] + "_pdf" + '.png'
         plt.savefig(file_name_png)

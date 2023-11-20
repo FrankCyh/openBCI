@@ -1,5 +1,6 @@
 import mne
 import pandas as pd
+import datetime
 
 from utils.database import *
 
@@ -16,16 +17,21 @@ def clean_eeg_dataframe(
         montage: a list of dicts, each dict contains the name and position of an electrode
     """
     montage_electrode_idx_l = [x["num"] for x in montage]
+    
+    data_df.columns = [col.strip() for col in data_df.columns]
     rename_mapping = {
-        f" EXG Channel {x}": f"channel_{x}_{ELECTRODE_MONTAGE_DEFAULT[x]['name']}" for x in montage_electrode_idx_l
+        f"EXG Channel {x}": f"channel_{x}_{ELECTRODE_MONTAGE_DEFAULT[x]['name']}" for x in montage_electrode_idx_l
     }
     rename_mapping.update({
-        " Timestamp (Formatted)": "timestamp",
+        "Timestamp (Formatted)": "timestamp",
         "Sample Index": "index",
     }) # keeping only the formatted timestamp and discard the raw timestamp
     data_df.rename(columns=rename_mapping, inplace=True)
 
-    data_df["timestamp"] = pd.to_datetime(data_df["timestamp"].str.strip()) # convert to datetime object
+    if "timestamp" in data_df.columns:
+        data_df["timestamp"] = pd.to_datetime(data_df["timestamp"]) # convert to datetime object
+    elif "Timestamp" in data_df.columns: # timestamp in RAW format, when streaming from Cython chip
+        data_df["timestamp"] = pd.to_datetime(data_df["Timestamp"], unit="s") # convert to datetime object from unix timestamp
 
     data_df = data_df[[col for col in data_df.columns.values if col.startswith("channel")] + ["timestamp", "index"]] # extract only 10 channels of interest
 

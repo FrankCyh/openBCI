@@ -3,9 +3,12 @@ import os
 import numpy as np
 
 SAMPLE_RATE = 250  # Sampling rate of data in Hz
+SAMPLE_RATE_IN_POW2 = 256  # Sampling rate of data in Hz
 NUM_ROWS_TO_SKIP = 4  # header data in the .txt file
 
-DATA_DIR = os.path.join(os.environ.get('ROOT_DIR'), "data")
+ROOT_DIR = os.environ.get('ROOT_DIR')
+DATA_DIR = os.path.join(ROOT_DIR, "data")
+SRC_DIR = os.path.join(ROOT_DIR, "src")
 
 ELECTRODE_MONTAGE_DEFAULT = [
     {
@@ -57,3 +60,33 @@ ELECTRODE_MONTAGE_OCCIPITAL = [x for x in ELECTRODE_MONTAGE_DEFAULT if x["name"]
 ELECTRODE_NAMES_DEFAULT = [x["name"] for x in ELECTRODE_MONTAGE_DEFAULT]
 
 NUM_CHANNELS_DEFAULT = len(ELECTRODE_MONTAGE_DEFAULT)
+
+DEFAULT_TXT_HEADER = [
+    "Sample Index",
+    "EXG Channel 0",
+    "EXG Channel 1",
+    "EXG Channel 2",
+    "EXG Channel 3",
+    "EXG Channel 4",
+    "EXG Channel 5",
+    "EXG Channel 6",
+    "EXG Channel 7",
+    "Accel Channel 0",
+    "Accel Channel 1",
+    "Accel Channel 2",
+    "Other",
+    "Other",
+    "Other",
+    "Other",
+    "Other",
+    "Other",
+    "Other",
+    "Analog Channel 0",
+    "Analog Channel 1",
+    "Analog Channel 2",
+    "Timestamp",
+    "Other",
+    "Timestamp (Formatted)",
+]
+
+DEFAULT_TXT_HEADER_WO_TIMESTAMP = DEFAULT_TXT_HEADER[:-1]
