@@ -70,7 +70,7 @@ def test_mock_motor():
         0.5,  # generate a prediction per 0.5 second
     ):
         DIR_NAME = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # the repo dir
-        CNN_model = load_model(os.path.join(DIR_NAME, "model_init", "model_motor.h5")) # load pretrained model
+        CNN_model = load_model(os.path.join(DIR_NAME, "classification", "motor_imagery_classification", "model_init", "model_motor.h5")) # load pretrained model
         selected_columns = ['channel_2_C3', 'channel_3_C4', 'channel_0_FP1'] # C3, C4, Cz
 
         # Extract the selected columns from the DataFrame
