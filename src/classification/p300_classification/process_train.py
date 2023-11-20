@@ -79,15 +79,15 @@ for i in range(len(white_timestamps)):
 
 # label data (0: non-target, 1: target)
 # Since total time is 60s and each image is 0.5s, there are 120 labels
-
 label = [0] * int(TOTAL_TIME / IMAGE_TIME)
 for t in white_t:
-  label[round(t / IMAGE_TIME) + 1] = 1
+  if round(t / IMAGE_TIME) + 1 < len(label):
+    label[round(t / IMAGE_TIME) + 1] = 1
 
 #print(len(label))
 
 # Segment data into 120 segments, each corresponding to one label
-# dataset 1: start from line 1339, timestamp=1698959840.671408 to match start time of white-black image
+# dataset 1: start from line 1340, timestamp=1698959840.671408 to match start time of white-black image
 data = []
 
 index = 1339
@@ -114,8 +114,6 @@ data = data[shuffle_idx]
 cutoff = int(data_size * 80 // 100)
 train_data = data[:cutoff]
 test_data = data[cutoff:]
-
-len(train_data)
 
 # check balance label in train_data
 train_data_size = len(train_data)
@@ -219,7 +217,7 @@ def val_batch(model, batch):
         pred = np.array([1 if n >= 0.5 else 0 for n in pred])
         return pred
 
-epoch = 2
+epoch = 10
 
 # init model
 model = ConvNet()
@@ -281,6 +279,6 @@ for i in range(k_fold):
 
     # save the model after the last fold
     if i == k_fold - 1:
-        model_name = f'model_fold_{i+1}_epoch_{epoch}_bs_{batch_size}.pth'
-        model_save_path = os.path.join('saved_models', model_name)
-        torch.save(model.state_dict(), model_save_path)
+        saved_model_name = f'model_fold_{i+1}_epoch_{epoch}_bs_{batch_size}.pth'
+        saved_model_path = os.path.join('saved_models', saved_model_name)
+        torch.save(model.state_dict(), saved_model_path)
