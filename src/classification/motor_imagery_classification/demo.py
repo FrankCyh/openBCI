@@ -62,6 +62,7 @@ def test_mock_motor():
         csp_test = extract_feature(X_test, csp_filter, filterbanks, time_windows)
 
         # predict
+        print()
         prediction = CNN_model.predict(csp_test)
         y_pred = np.argmax(prediction, axis=1) # prediction: 0 for left hand, 1 for right hand
         print("Confidential_score Left Hand :", prediction[0][0], " Confidential_score Right Hand :", prediction[0][1])
@@ -79,6 +80,6 @@ def test_mock_motor():
         else:
             print("Prediction is wrong")
         iteration += 1
-        print("Accumulated correctness :", correct/iteration)
+        print("Accumulated accuracy :", correct/iteration)
         
 test_mock_motor()
