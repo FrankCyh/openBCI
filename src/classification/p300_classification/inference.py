@@ -3,58 +3,11 @@
 import os
 import pandas as pd
 import numpy as np
-from datetime import datetime, timedelta
+from datetime import timedelta
 
 import torch
 from model import ConvNet
-
-
-# copy batch_size, minibatch(), cal_acc(), cal_f(), val_batch() from process_train
-
-batch_size = 128  # should be the same as for training
-
-def minibatch(data, batch_size):
-    start = 0
-    while True:
-        end = start + batch_size
-        yield data[start:end]
-
-        start = end
-        if start >= len(data):
-            break
-
-def cal_acc(pred, target):
-    assert len(pred) == len(target)
-    acc = np.sum(pred == target) / len(pred)
-    return acc
-
-def cal_f(pred, target):
-    assert len(pred) == len(target)
-    tp = 0
-    for i in range(len(pred)):
-        if pred[i] == target[i] and pred[i] == 1:
-            tp += 1
-    percision = tp / np.sum(pred == 1)
-    recall = tp / np.sum(target == 1)
-    f_score = (2 * percision * recall) / (percision + recall)
-    return f_score, percision, recall
-
-def val_batch(model, batch):
-
-    with torch.no_grad():
-
-        # forward pass
-        x_numpy_array = np.array([i for i in batch[:, 0]])
-        x = torch.FloatTensor(x_numpy_array)
-        _, height, width = x.size()
-        x = x.view(min(batch_size, len(x)), 1, height, width)
-        y_numpy_array = np.array([i for i in batch[:, 1]])
-        y = torch.FloatTensor(y_numpy_array)
-        pred = model(x)
-
-        pred = pred.cpu().detach().numpy().reshape(-1)
-        pred = np.array([1 if n >= 0.5 else 0 for n in pred])
-        return pred
+from inference_helper import batch_size, minibatch, cal_acc, cal_f, val_batch
 
 
 
@@ -146,7 +99,7 @@ print('test_data_size, test_data_true_count, test_data_false_count:', \
 
 model = ConvNet()
 
-pretrained_model_name = 'model_fold_10_epoch_2_bs_128.pth'
+pretrained_model_name = 'model_fold_10_epoch_10_bs_128.pth'
 pretrained_model_path = os.path.join('pretrained_models', pretrained_model_name)
 model.load_state_dict(torch.load(pretrained_model_path))
 

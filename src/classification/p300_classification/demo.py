@@ -11,13 +11,16 @@ from datetime import timedelta
 import torch
 from model import ConvNet
 from inference_helper import cal_acc, cal_f_demo, val_single
+import time
 
 from utils.database import *
 from utils.stream_utils import mock_stream
 
 from utils.database import *
 
-TOTAL_TIME = 60
+from utils.database import *
+
+TOTAL_TIME = 60  ## later, take 25-55s in dataset 1
 IMAGE_TIME = 0.5
 
 
@@ -48,7 +51,10 @@ def test_mock_p300():
         if round(t / IMAGE_TIME) + 1 < len(label):
             label[round(t / IMAGE_TIME) + 1] = 1
 
+    label = label[50:]  ## only take 25-60s
+
     count = 0  # used as index into label list
+    label_1_count = 0
 
     test_pred = []  # used to save test predictions for all streams
 
@@ -56,7 +62,7 @@ def test_mock_p300():
         os.path.join(
             DATA_DIR,
             "OpenBCI_2023-11-02_p300",
-            "demo.txt"
+            "demo_cropped.txt"
         ),
         0.5,  # in training, each data is 0.5 seconds long, so here in testing should be compatible
         0.5,  # generate a prediction per 0.5 second
@@ -76,26 +82,38 @@ def test_mock_p300():
         #print(test_data[0].shape)
 
         # predict
+        start_inference_time = time.perf_counter()  # time
+
         test_single_pred, test_single_pred_conf = val_single(model, test_data)
+
+        end_inference_time = time.perf_counter()  # time
+        inference_duration = end_inference_time - start_inference_time  # time
+
         test_single_pred = test_single_pred[0]
         test_pred.append(test_single_pred)
         conf = float(test_single_pred_conf[0][0])
 
         if label[count] == 1:
-            print("\nTarget stimulus at %.1f seconds" % (count / 2))
+            label_1_count += 1
+            print("\n\n%d/%d \tTarget stimulus at %.1f seconds  \tInference time: %.3f ms/step" % (label_1_count, label_1_count, count / 2, inference_duration * 1000))
+            # print("Inference time: %.3fms/step" % (inference_duration * 1000))
+            print("Confidence = %.2f" % conf)
             if test_single_pred == 1:
-                print("[SUCCESSFUL] Stimulus indentified, confidence = %.2f" % conf)
+                print("Predicted class: Target \tActual class: Target")
+                print("[SUCCESSFUL] Stimulus is indentified")
             else:
-                print("[FAILED] Stimulus not indentified, confidence = %.2f" % conf)
+                print("Predicted class: Non-target \tActual class: Target")
+                print("[FAILED] Stimulus is not indentified")
 
         count += 1
-        if count == int(TOTAL_TIME / IMAGE_TIME):
+        if count == 70:  ## only take 25-60s, 70 samples
             break
     
     test_target = np.array(label).reshape(-1)
     test_acc = cal_acc(test_pred, test_target)
     test_f_score, test_percision, test_recall = cal_f_demo(test_pred, test_target)    
-    print("\ntest acc: %.4f" % test_acc)
-    print("test percision: %.4f, test recall: %.4f, test f score: %.4f" % (test_percision, test_recall, test_f_score))
+    print("\n\nTotal Accuracy: %.4f" % test_acc)
+    print("Total Precision: %.4f, Recall: %.4f, F1 Score: %.4f" % (test_percision, test_recall, test_f_score))
+    print("\n\n\n")
 
 test_mock_p300()
