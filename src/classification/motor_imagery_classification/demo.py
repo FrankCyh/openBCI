@@ -4,7 +4,7 @@ from tensorflow.keras.models import load_model
 from classification.motor_imagery_classification.csp_extraction import *
 from classification.motor_imagery_classification.data_generator import *
 from utils.database import *
-from utils.stream_utils import mock_stream
+from utils.stream_utils import mock_stream, stream
 
 
 def test_mock_motor():
@@ -40,12 +40,12 @@ def test_mock_motor():
     CNN_model = load_model(os.path.join(SRC_DIR, "classification", "motor_imagery_classification", "model_init", "model_motor.h5")) # load pretrained model
     correct = 0
     iteration = 0
-    for i in mock_stream(
-        os.path.join(
-            DATA_DIR,
-            "OpenBCI-RAW-2023-11-02_17-02-05_motor_imagery",
-            "demo.txt"
-        ),
+    for i in stream(
+        #os.path.join(
+        #    DATA_DIR,
+        #    "OpenBCI-RAW-2023-11-02_17-02-05_motor_imagery",
+        #    "demo.txt"
+        #),
         5,  # in training, each data is 5 seconds long, so here in testing should be compatible
         0.5,  # generate a prediction per 0.5 second
     ):

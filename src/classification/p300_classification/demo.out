@@ -1,0 +1,68 @@
+Target stimulus at 2.5 seconds
+[SUCCESSFUL] Stimulus indentified, confidence = 0.59
+
+Target stimulus at 5.5 seconds
+[FAILED] Stimulus not indentified, confidence = 0.50
+
+Target stimulus at 6.0 seconds
+[FAILED] Stimulus not indentified, confidence = 0.45
+
+Target stimulus at 18.5 seconds
+[FAILED] Stimulus not indentified, confidence = 0.35
+
+Target stimulus at 21.5 seconds
+[FAILED] Stimulus not indentified, confidence = 0.38
+
+Target stimulus at 27.5 seconds
+[FAILED] Stimulus not indentified, confidence = 0.34
+
+Target stimulus at 29.0 seconds
+[FAILED] Stimulus not indentified, confidence = 0.40
+
+Target stimulus at 30.5 seconds
+[FAILED] Stimulus not indentified, confidence = 0.45
+
+Target stimulus at 37.5 seconds
+[SUCCESSFUL] Stimulus indentified, confidence = 0.65
+
+Target stimulus at 40.0 seconds
+[SUCCESSFUL] Stimulus indentified, confidence = 0.52
+
+Target stimulus at 40.5 seconds
+[SUCCESSFUL] Stimulus indentified, confidence = 0.53
+
+Target stimulus at 42.0 seconds
+[SUCCESSFUL] Stimulus indentified, confidence = 0.54
+
+Target stimulus at 43.0 seconds
+[SUCCESSFUL] Stimulus indentified, confidence = 0.52
+
+Target stimulus at 43.5 seconds
+[SUCCESSFUL] Stimulus indentified, confidence = 0.57
+
+Target stimulus at 46.5 seconds
+[SUCCESSFUL] Stimulus indentified, confidence = 0.60
+
+Target stimulus at 47.5 seconds
+[SUCCESSFUL] Stimulus indentified, confidence = 0.55
+
+Target stimulus at 50.0 seconds
+[SUCCESSFUL] Stimulus indentified, confidence = 0.59
+
+Target stimulus at 50.5 seconds
+[SUCCESSFUL] Stimulus indentified, confidence = 0.56
+
+Target stimulus at 51.5 seconds
+[SUCCESSFUL] Stimulus indentified, confidence = 0.54
+
+Target stimulus at 55.0 seconds
+[SUCCESSFUL] Stimulus indentified, confidence = 0.62
+
+Target stimulus at 57.0 seconds
+[SUCCESSFUL] Stimulus indentified, confidence = 0.61
+
+Target stimulus at 59.5 seconds
+[SUCCESSFUL] Stimulus indentified, confidence = 0.69
+
+test acc: 0.6917
+test percision: 0.3333, test recall: 0.6818, test f score: 0.4478

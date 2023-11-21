@@ -15,6 +15,8 @@ from inference_helper import cal_acc, cal_f_demo, val_single
 from utils.database import *
 from utils.stream_utils import mock_stream
 
+from utils.database import *
+
 TOTAL_TIME = 60
 IMAGE_TIME = 0.5
 
@@ -24,7 +26,7 @@ def test_mock_p300():
     # get a stride and test using pretrained model
     model = ConvNet()
     pretrained_model_name = 'model_fold_10_epoch_10_bs_128.pth'
-    pretrained_model_path = os.path.join('pretrained_models', pretrained_model_name)
+    pretrained_model_path = os.path.join(SRC_DIR, "classification", "p300_classification", 'pretrained_models', pretrained_model_name)
     model.load_state_dict(torch.load(pretrained_model_path))
     model.eval()
     
