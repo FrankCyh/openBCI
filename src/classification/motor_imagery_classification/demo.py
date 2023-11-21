@@ -74,7 +74,10 @@ def test_mock_motor():
         # output acc
         label = [0]*20 + [1]*31 + [0]*11 + [1]*21
         if y_pred == label[iteration]:
+            print("Prediction is correct")
             correct += 1
+        else:
+            print("Prediction is wrong")
         iteration += 1
         print("Accumulated correctness :", correct/iteration)
         
