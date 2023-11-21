@@ -16,6 +16,7 @@ def test_mock_motor():
     X = np.concatenate((X_imagery_LH, X_imagery_RH), axis=0)
     y = np.concatenate((y_imagery_LH, y_imagery_RH), axis=0)
     X = np.transpose(X, (0, 2, 1))
+    label = [0]*23 + [1]*30 + [0]*10 + [1]*20
     X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=300)
     filterbanks = load_filterbank(bandwidth=4, fs=fs)
     # time windows used in generating csp filters
@@ -69,11 +70,14 @@ def test_mock_motor():
         if y_pred == 0:
             result = "Left Hand"
         if y_pred == 1:
-            result = "Right Hand"
-        print("Predicted class :", result)
+            result = "Right Hand"   
+        if label[iteration] == 0:
+            actual_result = "Left Hand"
+        if label[iteration] == 1:
+            actual_result = "Right Hand"
+        print("Predicted class :", result, "  Actual class :", actual_result)
         
         # output acc
-        label = [0]*20 + [1]*31 + [0]*11 + [1]*21
         if y_pred == label[iteration]:
             print("Prediction is correct")
             correct += 1
