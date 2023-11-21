@@ -37,16 +37,18 @@ def test_mock_motor():
 
     # get a stride and test using pretrained model
     CNN_model = load_model(os.path.join(SRC_DIR, "classification", "motor_imagery_classification", "model_init", "model_motor.h5")) # load pretrained model
+    correct = 0
+    iteration = 0
     for i in mock_stream(
         os.path.join(
             DATA_DIR,
-            "OpenBCISession_2023-11-16_15-17-12_eye_blink",
-            "OpenBCI-RAW-2023-11-16_15-19-34.txt"
+            "OpenBCI-RAW-2023-11-02_17-02-05_motor_imagery",
+            "demo.txt"
         ),
         5,  # in training, each data is 5 seconds long, so here in testing should be compatible
         0.5,  # generate a prediction per 0.5 second
     ):
-        selected_columns = ['channel_2_C3', 'channel_3_C4', 'channel_0_FP1'] # C3, C4, Cz
+        selected_columns = ['channel_2_C3', 'channel_3_C4', 'channel_7_O2'] # C3, C4, Cz
 
         # Extract the selected columns from the DataFrame
         selected_data = i[selected_columns]
@@ -60,8 +62,20 @@ def test_mock_motor():
         csp_test = extract_feature(X_test, csp_filter, filterbanks, time_windows)
 
         # predict
-        y_pred = np.argmax(CNN_model.predict(csp_test), axis=1) # prediction: 0 for left hand, 1 for right hand
-        print(y_pred)
-
-
+        prediction = CNN_model.predict(csp_test)
+        y_pred = np.argmax(prediction, axis=1) # prediction: 0 for left hand, 1 for right hand
+        print("Confidential_score Left Hand :", prediction[0][0], " Confidential_score Right Hand :", prediction[0][1])
+        if y_pred == 0:
+            result = "Left Hand"
+        if y_pred == 1:
+            result = "Right Hand"
+        print("Predicted class :", result)
+        
+        # output acc
+        label = [0]*20 + [1]*31 + [0]*11 + [1]*21
+        if y_pred == label[iteration]:
+            correct += 1
+        iteration += 1
+        print("Accumulated correctness :", correct/iteration)
+        
 test_mock_motor()
