@@ -1,6 +1,7 @@
 import mne
 import pandas as pd
 import datetime
+import time
 
 from utils.database import *
 
@@ -83,3 +84,22 @@ def get_eeg_from_txt_as_numpy_array(
     """
     data_df = get_eeg_from_txt_as_df(txt_path)
     return get_eeg_from_df_as_numpy_array(data_df)
+
+def collect_eeg(
+    insn: str,
+    sec: int = 5,
+):
+    """
+    Collect EEG data from the OpenBCI board and save it to a file.
+    """
+    from utils.stream_utils import prepare_session
+    board_obj, board_desc = prepare_session()
+    
+    print(f"Think {insn} in 3")
+    time.sleep(1.5)
+    board_obj.start_stream()  # use this for default options
+    time.sleep(1.3)
+    data = board_obj.get_current_board_data(250)
+    board_obj.stop_stream()
+    
+collect_eeg("Motor Imagery")

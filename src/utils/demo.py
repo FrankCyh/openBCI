@@ -44,7 +44,7 @@ def calculate_alpha_beta_ratio(
     time.sleep(3) # filter out the first 3 seconds of data collected
 
     timestamp = 0
-    NUM_TIMESTAMP = 50
+    NUM_TIMESTAMP = 10
     # get current timestamp
     data = board_obj.get_board_data() # clear all data before enterting the loop
     while (timestamp < NUM_TIMESTAMP):
