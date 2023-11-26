@@ -43,7 +43,7 @@ def val_batch(model, batch):
         pred = model(x)
 
         pred = pred.cpu().detach().numpy().reshape(-1)
-        pred = np.array([1 if n >= 0.5 else 0 for n in pred])  #### changed threshold, original 0.5
+        pred = np.array([1 if n >= 0.5 else 0 for n in pred])
         return pred
 
 
