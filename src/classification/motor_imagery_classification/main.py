@@ -15,31 +15,44 @@ window_length = 7
 
 # import data
 DIR_NAME = os.path.dirname(os.path.abspath(__file__))
-selected_columns = [3, 4, 8] # C3 Cz C4 channels are all what we need
+selected_columns = [3, 4] # C3 C4 channels are all what we need
 
-X_imagery_LH, y_imagery_LH = data_generator.read_and_select_columns(os.path.join(DATA_DIR, "OpenBCI-RAW-2023-11-02_17-02-05_motor_imagery", "imagery_LH"), selected_columns)
+'''X_imagery_LH, y_imagery_LH = data_generator.read_and_select_columns(os.path.join(DATA_DIR, "OpenBCI-RAW-2023-11-02_17-02-05_motor_imagery", "imagery_LH"), selected_columns)
 X_imagery_RH, y_imagery_RH = data_generator.read_and_select_columns(os.path.join(DATA_DIR, "OpenBCI-RAW-2023-11-02_17-02-05_motor_imagery", "imagery_RH"), selected_columns)
 
 X = np.concatenate((X_imagery_LH, X_imagery_RH), axis=0)
-y = np.concatenate((y_imagery_LH, y_imagery_RH), axis=0)
+y = np.concatenate((y_imagery_LH, y_imagery_RH), axis=0)'''
+
+X, y = data_generator.read_and_select_columns_txt(os.path.join(DATA_DIR, "OpenBCI-2023-11-25-motor-imagery", "motor"), selected_columns)
+print(X.shape)
 X = np.transpose(X, (0, 2, 1))
 
-X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=300)
-X_train, X_test, y_train, y_test = train_test_split(X_train, y_train, test_size=0.25, random_state=300)
+X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.1, random_state=300)
+X_train, X_test, y_train, y_test = train_test_split(X_train, y_train, test_size=0.1, random_state=300)
 
 # time windows used in generating csp filters
 time_windows = time_windows = np.array([
+    [0, 1],
+    [0.5, 1.5],
+    [1, 2],
     [1.5, 2.5],
     [2, 3],
     [2.5, 3.5],
     [3, 4],
     [3.5, 4.5],
     [4, 5],
+    [0, 2],
+    [0.5, 2.5],
+    [1, 3],
     [1.5, 3.5],
     [2, 4],
     [2.5, 4.5],
     [3, 5],
-    [1.5, 5]
+    [0, 3.5],
+    [0.5, 4],
+    [1, 4.5],
+    [1.5, 5],
+    [0, 5]
 ]) * 250
 
 # CSP
@@ -62,7 +75,7 @@ print(csp_val.shape)
 CNN_model = cnn.create_model()
 CNN_model.save(os.path.join(DIR_NAME, "model_init", "model_motor.h5"))
 CNN_model = load_model(os.path.join(DIR_NAME, "model_init", "model_motor.h5"))
-cnn.train_model(csp_train, y_train, csp_val, y_val, CNN_model, 30, 10)
+cnn.train_model(csp_train, y_train, csp_val, y_val, CNN_model, 30, 300)
 CNN_model.save(os.path.join(DIR_NAME, "model_init", "model_motor.h5"))
 
 # Test Data Evalutaion

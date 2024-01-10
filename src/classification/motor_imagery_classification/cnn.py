@@ -11,22 +11,22 @@ from tensorflow.keras.constraints import max_norm
 import numpy as np
 
 def create_model():    
-    learning_rate = 1e-05 # typically a small number for adam optimizer
+    learning_rate = 5e-05 # typically a small number for adam optimizer
     
     model = Sequential()
-    model.add(InputLayer(input_shape=(11,36,1))) # input layer of size (num time windows) * (num csp) * 1(num_channels)
+    model.add(InputLayer(input_shape=(21,24,1))) # input layer of size (num time windows) * (num csp) * 1(num_channels)
 
     name = 'conv_layer_1'
-    model.add(Conv2D(kernel_size=[1, 6], 
-                                    strides=[1, 6], filters=16, 
+    model.add(Conv2D(kernel_size=[2, 4], 
+                                    strides=[1, 4], filters=16, 
                                     padding='same',  activation='relu', 
                                     name=name))
     
     model.add(MaxPooling2D(pool_size=(1, 3), strides=(1, 3)))  # Adjust pool_size and strides as needed
     
     name = 'conv_layer_2'
-    model.add(Conv2D(kernel_size=[1, 6], 
-                                    strides=[1, 6], filters=32, 
+    model.add(Conv2D(kernel_size=[2, 4], 
+                                    strides=[1, 4], filters=32, 
                                     padding='same',  activation='relu', 
                                     name=name))
 
@@ -34,7 +34,7 @@ def create_model():
     model.add(Flatten())
 
     name = 'layer_dense_1'
-    model.add(Dense(8, activation='relu', name=name)) 
+    model.add(Dense(16, activation='relu', name=name)) 
         
     #name = 'layer_dense_2'
     #model.add(Dense(8, activation='relu', name=name)) 

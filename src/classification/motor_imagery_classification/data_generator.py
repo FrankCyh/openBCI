@@ -65,6 +65,69 @@ def read_and_select_columns(folder_path, columns):
     except Exception as e:
         print(f"An error occurred: {e}")
         return None
+    
+    
+
+def read_and_select_columns_txt(folder_path, columns):
+    """
+    Reads a CSV file and selects specified columns to produce a 2D array.
+    Parse the data to discard the setup time and make all the data to same size.
+
+    Arg:
+        folder_path: Path to the CSV file.
+        columns: List of column indexes to select.
+
+    Return: A 2D array with size num_trials * 1250 * 3 （data point * length in frequency * channel）
+    """
+
+    # Create labels
+    data = []
+    num_files = 0
+    label = []
+    try:
+        for filename in os.listdir(folder_path):
+            if filename.endswith(".txt"):
+                num_files = num_files + 1
+                txt_path = os.path.join(folder_path, filename)
+
+                with open(txt_path, 'r', newline='') as txtfile:
+                    # Create a CSV reader object
+                    reader = csv.reader(txtfile, delimiter=',')
+
+                    # Initialize the 2D array to store selected data
+                    selected_data = []
+                    row_counter = 0
+                    sample_counter = 0
+
+                    # Iterate through the rows and select the specified columns, notice, each data piece
+                    # contains 1250 samples of three channels, we discard the first 300 samples from each trial
+                    for row in reader:
+                        row_counter += 1
+                        if row_counter < 300:
+                            continue
+                        else:
+                            if sample_counter < 1250:
+                                selected_row = [row[i] for i in columns]
+                                selected_data.append(selected_row)
+                                sample_counter += 1
+                            else:
+                                if len(selected_data) == 1250:
+                                    data.append(selected_data)
+                                    if ("_l" in txt_path):
+                                        label.append(0)
+                                    elif ("_r" in txt_path):
+                                        label.append(1)
+                                selected_data = []
+                                sample_counter = 0
+
+        return np.array(data).astype(float), np.array(label).astype(float)
+
+    except FileNotFoundError:
+        print(f"Error: File not found at {txt_path}")
+        return None
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return None
 
 
 

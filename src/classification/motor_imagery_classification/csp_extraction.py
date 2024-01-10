@@ -10,7 +10,7 @@ def generate_projection(
     filter_bank,
     time_windows,
     no_classes=2,
-    m=3,
+    m=2,
 ):
     """
     Generate spatial filters for every timewindow and frequancy band
