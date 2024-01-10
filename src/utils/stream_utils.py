@@ -11,11 +11,34 @@ from brainflow.data_filter import (DataFilter, DetrendOperations,
                                    WindowOperations)
 
 
+def prepare_session(
+    port: str = "/dev/cu.usbserial-DP04WG3B",
+):
+    """
+    Prepare the session for streaming from Cython board.
+    """
+    board_id = BoardIds.CYTON_BOARD
+    board_desc = BoardShim.get_board_descr(board_id)
+
+    #$ Set the board parameters
+    board_params = BrainFlowInputParams()
+    board_params.serial_port = port
+
+    #$ Create the board object
+    board_obj = BoardShim(
+        board_id=board_id,
+        input_params=board_params,
+    )
+
+    #$ Prepare the board session and start the stream
+    board_obj.prepare_session()
+    
+    return board_obj, board_desc
+
 def stream(
     period: int = 1,
     stride: int = None,
     stream_sec: int = None,
-    port: str = "/dev/cu.usbserial-DP04WG3B",
     skip_first_n_seconds: int = 1,
     montage: list[dict] = ELECTRODE_MONTAGE_DEFAULT,
 ):
@@ -36,23 +59,9 @@ def stream(
         assert stride <= period, "Invalid stride time, must be smaller than period"
     else:
         stride = period
-    
-    broad_id = BoardIds.CYTON_BOARD
-    broad_desc = BoardShim.get_board_descr(broad_id)
-    broad_sampling_rate = int(broad_desc["sampling_rate"])
+    board_obj, board_desc = prepare_session()
+    broad_sampling_rate = int(board_desc["sampling_rate"])
 
-    #$ Set the board parameters
-    board_params = BrainFlowInputParams()
-    board_params.serial_port = port
-
-    #$ Create the board object
-    board_obj = BoardShim(
-        board_id=broad_id,
-        input_params=board_params,
-    )
-
-    #$ Prepare the board session and start the stream
-    board_obj.prepare_session()
     board_obj.start_stream()
 
     #$ Calculate the nearest power of two for spectral power estimation
@@ -125,3 +134,7 @@ def mock_stream(
         curr_line_num += num_line_stride
         if mock_sleep:
             time.sleep(stride)
+            
+for i in stream():
+    print(i.shape)
+    break

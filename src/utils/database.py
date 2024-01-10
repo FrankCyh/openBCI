@@ -53,6 +53,29 @@ ELECTRODE_MONTAGE_DEFAULT = [
     },
 ]
 
+ELECTRODE_P300 = [
+    {
+        "name": "P3",
+        "num": 2,
+    },
+    {
+        "name": "Fz",
+        "num": 3,
+    },
+    {
+        "name": "Cz",
+        "num": 4,
+    },
+    {
+        "name": "P4",
+        "num": 5,
+    },
+    {
+        "name": "Pz",
+        "num": 6,
+    },
+]
+
 ELECTRODE_MONTAGE_FRONTALIS = [x for x in ELECTRODE_MONTAGE_DEFAULT if x["name"] in ["FP1", "FP2"]]
 
 ELECTRODE_MONTAGE_OCCIPITAL = [x for x in ELECTRODE_MONTAGE_DEFAULT if x["name"] in ["O1", "O2"]]
