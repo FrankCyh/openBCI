@@ -7,6 +7,12 @@ import torch
 import torch.nn as nn
 from model import ConvNet
 
+from train_helper import *
+
+import os
+current_path = os.getcwd()
+base_path = os.path.dirname(os.path.dirname(os.path.dirname(current_path)))
+
 
 
 # ==================================================== Data Loader ====================================================
@@ -14,20 +20,36 @@ from model import ConvNet
 TOTAL_TIME = 60
 IMAGE_TIME = 0.5
 
-import os
-current_path = os.getcwd()
-base_path = os.path.dirname(os.path.dirname(os.path.dirname(current_path)))
 
-# read CSV file (data)
-file_path_csv = os.path.join(base_path, 'data', 'OpenBCI_2023-11-02_p300', 'BrainFlow-RAW_2023-11-02_16-27-02_67.csv')
-df = pd.read_csv(file_path_csv, sep='\t', header=None)
+is_nov02 = True
+
+# read CSV or TXT file (data)
+if is_nov02:
+    # data collected on Nov 2 is loaded via CSV
+    file_path_csv = os.path.join(base_path, 'data', 'OpenBCI_2023-11-02_p300', 'BrainFlow-RAW_2023-11-02_16-27-02_67.csv')
+    df = pd.read_csv(file_path_csv, sep='\t', header=None)
+else:
+    # data collected on Nov 25 is loaded via TXT
+    df = get_eeg_from_txt_as_df(
+        os.path.join(base_path, 'data', 'OpenBCI_2023-11-25_p300', 'OpenBCI-RAW-2023-11-25_19-54-15_leting.txt'),
+        ELECTRODE_MONTAGE_P300,
+    )
 
 # select columns of 5 electrodes
-Fz_column = df.iloc[:, 3]
-Cz_column = df.iloc[:, 8]
-P3_column = df.iloc[:, 7]
-Pz_column = df.iloc[:, 6]
-P4_column = df.iloc[:, 5]
+if is_nov02:
+    # electrode positions are specific for data collected on Nov 2
+    Fz_column = df.iloc[:, 3]
+    Cz_column = df.iloc[:, 8]
+    P3_column = df.iloc[:, 7]
+    Pz_column = df.iloc[:, 6]
+    P4_column = df.iloc[:, 5]
+else:
+    # reorder electrodes from 0-4, electrode positions are specific for data collected on Nov 25
+    Fz_column = df.iloc[:, 1]
+    Cz_column = df.iloc[:, 2]
+    P3_column = df.iloc[:, 0]
+    Pz_column = df.iloc[:, 4]
+    P4_column = df.iloc[:, 3]
 
 Fz_array = Fz_column.to_numpy()
 Cz_array = Cz_column.to_numpy()
@@ -39,16 +61,20 @@ x_array = np.column_stack((Fz_array, Cz_array, P3_array, Pz_array, P4_array))
 
 # select column of timestamp and convert unix timestamp to formatted timestamp
 timestamp_column = df.iloc[:, -2]
-timestamp_array = timestamp_column.to_numpy()
-formatted_timestamp_array = [datetime.fromtimestamp(unix_timestamp) for unix_timestamp in timestamp_array]
-formatted_timestamp_array = [timestamp - timedelta(hours=4) for timestamp in formatted_timestamp_array]
-
-#print(x_array.shape)
-#print(x_array[0])
+timestamp_array = list(timestamp_column)
+if is_nov02:
+    formatted_timestamp_array = [datetime.fromtimestamp(unix_timestamp) for unix_timestamp in timestamp_array]
+    formatted_timestamp_array = [timestamp - timedelta(hours=4) for timestamp in formatted_timestamp_array]
+else:
+    formatted_timestamp_array = timestamp_array
 
 # read TXT file (ground truth)
-with open(os.path.join(base_path, 'data', 'OpenBCI_2023-11-02_p300', 'white_time_1.txt'), 'r') as file:
-    lines = file.readlines()
+if is_nov02:
+    with open(os.path.join(base_path, 'data', 'OpenBCI_2023-11-25_p300', 'white_time_leting.txt'), 'r') as file:
+        lines = file.readlines()
+else:
+    with open(os.path.join(base_path, 'data', 'OpenBCI_2023-11-02_p300', 'white_time_1.txt'), 'r') as file:
+        lines = file.readlines()
 
 # initialize lists to store timestamps
 start_timestamp = None
@@ -56,23 +82,28 @@ white_timestamps = []
 
 # process each line
 for line in lines:
-  if "Recording start at:" in line:
-    # extract and convert the absolute start timestamp
-    start_timestamp_str = line.split(": ", 1)[1].strip()
-    start_timestamp = datetime.fromisoformat(start_timestamp_str)
-  elif "White image shown at:" in line:
-    # extract and convert the relative white image timestamps
-    white_timestamp_str = line.split(": ", 1)[1].strip()
-    hours, minutes, seconds = map(float, white_timestamp_str.split(':'))
-    white_timestamp = timedelta(hours=hours, minutes=minutes, seconds=seconds)
-    white_timestamps.append(white_timestamp)
+    if "Recording start at:" in line:
+        # extract and convert the absolute start timestamp
+        start_timestamp_str = line.split(": ", 1)[1].strip()
+        start_timestamp = datetime.fromisoformat(start_timestamp_str)
+    elif "White image shown at:" in line:
+        # extract and convert the relative white image timestamps
+        white_timestamp_str = line.split(": ", 1)[1].strip()
+        hours, minutes, seconds = map(float, white_timestamp_str.split(':'))
+        white_timestamp = timedelta(hours=hours, minutes=minutes, seconds=seconds)
+        white_timestamps.append(white_timestamp)
 
-absolute_white_timestamps = [start_timestamp + delta for delta in white_timestamps]
+if is_nov02:
+    absolute_white_timestamps = [start_timestamp + delta for delta in white_timestamps]
+else:
+    end_timestamp = start_timestamp + timedelta(minutes=3, seconds=5)
+    absolute_white_timestamps = [start_timestamp + delta for delta in white_timestamps]
+    absolute_white_timestamps = [t for t in absolute_white_timestamps if t < end_timestamp]
 
 # compute relative white time in seconds
 white_t = []
 for i in range(len(white_timestamps)):
-  white_t.append(white_timestamps[i].seconds + white_timestamps[i].microseconds / 1000000)
+    white_t.append(white_timestamps[i].seconds + white_timestamps[i].microseconds / 1000000)
 
 #print(white_timestamps)
 #print(white_t)
@@ -81,8 +112,8 @@ for i in range(len(white_timestamps)):
 # Since total time is 60s and each image is 0.5s, there are 120 labels
 label = [0] * int(TOTAL_TIME / IMAGE_TIME)
 for t in white_t:
-  if round(t / IMAGE_TIME) + 1 < len(label):
-    label[round(t / IMAGE_TIME) + 1] = 1
+    if round(t / IMAGE_TIME) + 1 < len(label):
+        label[round(t / IMAGE_TIME) + 1] = 1
 
 #print(len(label))
 
@@ -92,9 +123,9 @@ data = []
 
 index = 1339
 for i in range(120):
-  data_i = [x_array[index:index+125, :], label[i]]
-  data.append(data_i)
-  index += 125
+    data_i = [x_array[index:index+125, :], label[i]]
+    data.append(data_i)
+    index += 125
 
 data = np.array(data, dtype=object)
 

@@ -53,11 +53,7 @@ ELECTRODE_MONTAGE_DEFAULT = [
     },
 ]
 
-ELECTRODE_P300 = [
-    {
-        "name": "P3",
-        "num": 2,
-    },
+ELECTRODE_MONTAGE_P300 = [
     {
         "name": "Fz",
         "num": 3,
@@ -67,12 +63,16 @@ ELECTRODE_P300 = [
         "num": 4,
     },
     {
-        "name": "P4",
-        "num": 5,
+        "name": "P3",
+        "num": 2,
     },
     {
         "name": "Pz",
         "num": 6,
+    },
+    {
+        "name": "P4",
+        "num": 5,
     },
 ]
 
