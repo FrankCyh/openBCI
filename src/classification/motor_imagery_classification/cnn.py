@@ -1,40 +1,49 @@
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import InputLayer
-from tensorflow.keras.layers import Conv2D, Dense, Flatten, MaxPooling2D
+from tensorflow.keras.layers import Conv2D, Dense, Flatten, MaxPooling2D, BatchNormalization
+from tensorflow.keras.regularizers import l2
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.layers import Dense, Dropout, Activation, Flatten, Input, DepthwiseConv2D
 from tensorflow.keras.layers import Conv2D, BatchNormalization, MaxPooling2D, MaxPool2D, \
     Lambda, AveragePooling2D, TimeDistributed, ConvLSTM2D, Reshape, SpatialDropout2D, SeparableConv2D
 from tensorflow.keras import regularizers, Model
 from tensorflow.keras.constraints import max_norm
+import matplotlib.pyplot as plt
 
 import numpy as np
 
 def create_model():    
-    learning_rate = 5e-05 # typically a small number for adam optimizer
+    learning_rate = 3e-05 # typically a small number for adam optimizer
     
     model = Sequential()
     model.add(InputLayer(input_shape=(21,24,1))) # input layer of size (num time windows) * (num csp) * 1(num_channels)
 
     name = 'conv_layer_1'
-    model.add(Conv2D(kernel_size=[2, 4], 
-                                    strides=[1, 4], filters=16, 
-                                    padding='same',  activation='relu', 
-                                    name=name))
     
-    model.add(MaxPooling2D(pool_size=(1, 3), strides=(1, 3)))  # Adjust pool_size and strides as needed
+    model.add(Conv2D(kernel_size=[2, 4],
+                 strides=[1, 4], filters=8,
+                 padding='same', use_bias=False, kernel_regularizer=l2(5e-5), name=name))
+    
+    model.add(BatchNormalization())
+    model.add(Activation('elu'))
+    
+    #model.add(Dropout(0.2)) # dropout before pooling
+    model.add(MaxPooling2D(pool_size=(1, 3), strides=(1, 3)))  
     
     name = 'conv_layer_2'
-    model.add(Conv2D(kernel_size=[2, 4], 
-                                    strides=[1, 4], filters=32, 
-                                    padding='same',  activation='relu', 
-                                    name=name))
+    model.add(Conv2D(kernel_size=[2, 4],
+                 strides=[1, 4], filters=16,
+                 padding='same', use_bias=False, kernel_regularizer=l2(5e-5), name=name))
+    
+    model.add(BatchNormalization())
+    model.add(Activation('elu'))
 
     # then, enter dense layers
     model.add(Flatten())
 
     name = 'layer_dense_1'
-    model.add(Dense(16, activation='relu', name=name)) 
+    model.add(Dense(16, activation='relu', kernel_regularizer=l2(5e-5), name=name)) 
+    #model.add(Dropout(0.2))
         
     #name = 'layer_dense_2'
     #model.add(Dense(8, activation='relu', name=name)) 
@@ -138,30 +147,33 @@ def fit_and_save(model, epochs, train_X, train_y, validation_X, validation_y, ba
         val_acc.append(history.history["val_accuracy"][-1])
         val_loss.append(history.history["val_loss"][-1])
 
-        '''MODEL_NAME = f"models/{round(val_acc[-1] * 100, 2)}-{epoch}epoch-{int(time.time())}-loss-{round(val_loss[-1], 2)}.model"
 
-        if round(val_acc[-1] * 100, 4) >= 77 and round(train_acc[-1] * 100, 4) >= 77:
-            # saving & plotting only relevant models
-            model.save(MODEL_NAME)
-            print("saved: ", MODEL_NAME)
+    MODEL_NAME = f"models/{round(val_acc[-1] * 100, 2)}-{epoch}epoch-loss-{round(val_loss[-1], 2)}.model"
+    if round(val_acc[-1] * 100, 4) >= 77 and round(train_acc[-1] * 100, 4) >= 77:
+        # saving & plotting only relevant models
+        model.save(MODEL_NAME)
+        print("saved: ", MODEL_NAME)
 
-            # Accuracy
-            plt.plot(np.arange(len(val_acc)), val_acc)
-            plt.plot(np.arange(len(train_acc)), train_acc)
-            plt.title('Model Accuracy')
-            plt.ylabel('accuracy')
-            plt.xlabel('epoch')
-            plt.legend(['val', 'train'], loc='upper left')
-            plt.show()
+    # Accuracy
+    plt.plot(np.arange(len(val_acc)), val_acc)
+    plt.plot(np.arange(len(train_acc)), train_acc)
+    plt.title('Model Accuracy')
+    plt.ylabel('accuracy')
+    plt.xlabel('epoch')
+    plt.legend(['val', 'train'], loc='upper left')
+    #plt.show()
+    plt.savefig('plots/Acc.png')
+    plt.clf()
 
-            # Loss
-            plt.plot(np.arange(len(val_loss)), val_loss)
-            plt.plot(np.arange(len(train_loss)), train_loss)
-            plt.title('Model Loss')
-            plt.ylabel('Loss')
-            plt.xlabel('epoch')
-            plt.legend(['val', 'train'], loc='upper left')
-            plt.show()'''
+    # Loss
+    plt.plot(np.arange(len(val_loss)), val_loss)
+    plt.plot(np.arange(len(train_loss)), train_loss)
+    plt.title('Model Loss')
+    plt.ylabel('Loss')
+    plt.xlabel('epoch')
+    plt.legend(['val', 'train'], loc='upper left')
+    #plt.show()
+    plt.savefig('plots/Losses.png')
     
 def check_accuracy(model, X, y_truth, y_pred):
     correct = 0

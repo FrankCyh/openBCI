@@ -2,6 +2,7 @@ import numpy as np
 from scipy.signal import butter
 import csv
 import os
+import torch
 
 
 def read_and_select_columns(folder_path, columns):
@@ -182,3 +183,48 @@ def load_filterbank(bandwidth, fs, max_freq=32, order=2, ftype='butter'):
             filter_bank[band_idx] = butter(order, f_band_nom[band_idx], analog=False, btype='bandpass', output='sos')
 
     return filter_bank
+
+
+def smooth_time_mask(X, y, mask_start_per_sample, mask_len_samples):
+    """Smoothly replace a contiguous part of all channels by zeros.
+
+    Originally proposed in [1]_ and [2]_
+
+    Parameters
+    ----------
+    X : torch.Tensor
+        EEG input example or batch.
+    y : torch.Tensor
+        EEG labels for the example or batch.
+    mask_start_per_sample : torch.tensor
+        Tensor of integers containing the position (in last dimension) where to
+        start masking the signal. Should have the same size as the first
+        dimension of X (i.e. one start position per example in the batch).
+    mask_len_samples : int
+        Number of consecutive samples to zero out.
+
+    Returns
+    -------
+    torch.Tensor
+        Transformed inputs.
+    torch.Tensor
+        Transformed labels.
+
+    References
+    ----------
+    .. [1] Cheng, J. Y., Goh, H., Dogrusoz, K., Tuzel, O., & Azemi, E. (2020).
+       Subject-aware contrastive learning for biosignals. arXiv preprint
+       arXiv:2007.04871.
+    .. [2] Mohsenvand, M. N., Izadi, M. R., & Maes, P. (2020). Contrastive
+       Representation Learning for Electroencephalogram Classification. In
+       Machine Learning for Health (pp. 238-253). PMLR.
+    """
+    batch_size, n_channels, seq_len = X.shape
+    t = torch.arange(seq_len, device=X.device).float()
+    t = t.repeat(batch_size, n_channels, 1)
+    mask_start_per_sample = mask_start_per_sample.view(-1, 1, 1)
+    s = 1000 / seq_len
+    mask = (torch.sigmoid(s * -(t - mask_start_per_sample)) +
+            torch.sigmoid(s * (t - mask_start_per_sample - mask_len_samples))
+            ).float().to(X.device)
+    return X * mask, y

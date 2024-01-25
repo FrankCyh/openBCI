@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from tensorflow.keras.models import load_model
+import torch
 
 from utils.database import DATA_DIR
 
@@ -26,6 +27,11 @@ y = np.concatenate((y_imagery_LH, y_imagery_RH), axis=0)'''
 X, y = data_generator.read_and_select_columns_txt(os.path.join(DATA_DIR, "OpenBCI-2023-11-25-motor-imagery", "motor"), selected_columns)
 print(X.shape)
 X = np.transpose(X, (0, 2, 1))
+
+
+# now try data augmentation************************************************************************************
+#X_2 = data_generator.smooth_time_mask(X, y, )
+
 
 X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.1, random_state=300)
 X_train, X_test, y_train, y_test = train_test_split(X_train, y_train, test_size=0.1, random_state=300)
@@ -75,7 +81,8 @@ print(csp_val.shape)
 CNN_model = cnn.create_model()
 CNN_model.save(os.path.join(DIR_NAME, "model_init", "model_motor.h5"))
 CNN_model = load_model(os.path.join(DIR_NAME, "model_init", "model_motor.h5"))
-cnn.train_model(csp_train, y_train, csp_val, y_val, CNN_model, 30, 300)
+#cnn.train_model(csp_train, y_train, csp_val, y_val, CNN_model, 16, 400)
+cnn.fit_and_save(CNN_model, 300, csp_train, y_train, csp_val, y_val, 16)
 CNN_model.save(os.path.join(DIR_NAME, "model_init", "model_motor.h5"))
 
 # Test Data Evalutaion
