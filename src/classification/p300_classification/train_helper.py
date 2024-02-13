@@ -1,4 +1,5 @@
 import pandas as pd
+import torch
 
 import os
 import sys
@@ -57,3 +58,81 @@ def get_eeg_from_txt_as_df(
     data_df = pd.read_csv(txt_path, skiprows=NUM_ROWS_TO_SKIP)
     data_df = clean_eeg_dataframe(data_df, montage)
     return data_df
+
+
+# divide data into minibatches
+def minibatch(data, batch_size):
+    start = 0
+    while True:
+
+        end = start + batch_size
+        yield data[start:end]
+
+        start = end
+        if start >= len(data):
+            break
+
+# calculate acc
+def cal_acc(pred, target):
+    assert len(pred) == len(target)
+    acc = np.sum(pred == target) / len(pred)
+    return acc
+
+def cal_f(pred, target):
+    assert len(pred) == len(target)
+    tp = 0
+    for i in range(len(pred)):
+        if pred[i] == target[i] and pred[i] == 1:
+            tp += 1
+    percision = tp / np.sum(pred == 1)
+    recall = tp / np.sum(target == 1)
+    f_score = (2 * percision * recall) / (percision + recall)
+    return f_score, percision, recall
+
+# train function
+def train_batch(model, criterion, optimizer, batch, batch_size):
+
+    model.zero_grad()
+
+    # forward pass
+    ##x = torch.FloatTensor([i for i in batch[:, 0]]).cuda()
+    ##x = torch.FloatTensor([i for i in batch[:, 0]])
+    x_numpy_array = np.array([i for i in batch[:, 0]])##
+    x = torch.FloatTensor(x_numpy_array)##
+    _, height, width = x.size()
+    x = x.view(min(batch_size, len(x)), 1, height, width)
+    ##y = torch.FloatTensor([i for i in batch[:, 1]]).cuda()
+    ##y = torch.FloatTensor([i for i in batch[:, 1]])
+    y_numpy_array = np.array([i for i in batch[:, 1]])##
+    y = torch.FloatTensor(y_numpy_array)##
+    pred = model(x)
+
+    # back proporgation
+    loss = criterion(pred.view(-1), y)
+    loss.backward()
+    optimizer.step()
+
+    pred = pred.cpu().detach().numpy().reshape(-1)
+    pred = np.array([1 if n >= 0.5 else 0 for n in pred])
+    return pred
+
+def val_batch(model, batch, batch_size):
+
+    with torch.no_grad():
+
+        # forward pass
+        ##x = torch.FloatTensor([i for i in batch[:, 0]]).cuda()
+        ##x = torch.FloatTensor([i for i in batch[:, 0]])
+        x_numpy_array = np.array([i for i in batch[:, 0]])##
+        x = torch.FloatTensor(x_numpy_array)##
+        _, height, width = x.size()
+        x = x.view(min(batch_size, len(x)), 1, height, width)
+        ##y = torch.FloatTensor([i for i in batch[:, 1]]).cuda()
+        ##y = torch.FloatTensor([i for i in batch[:, 1]])
+        y_numpy_array = np.array([i for i in batch[:, 1]])##
+        y = torch.FloatTensor(y_numpy_array)##
+        pred = model(x)
+
+        pred = pred.cpu().detach().numpy().reshape(-1)
+        pred = np.array([1 if n >= 0.5 else 0 for n in pred])
+        return pred
