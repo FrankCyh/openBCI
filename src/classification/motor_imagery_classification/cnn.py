@@ -178,6 +178,7 @@ def fit_and_save(model, epochs, train_X, train_y, validation_X, validation_y, ba
 def check_accuracy(model, X, y_truth, y_pred):
     correct = 0
     for i in range(len(y_truth)):
+        print(y_pred[i], y_truth[i])
         if (y_pred[i] == y_truth[i]):
             correct += 1
             
@@ -185,7 +186,9 @@ def check_accuracy(model, X, y_truth, y_pred):
 
 def model_evaluation(model, X, y_truth):
     y_pred = np.argmax(model.predict(X), axis = 1)
+    print(y_pred)
     y_truth = np.argmax(y_truth, axis = 1)
+    print(y_truth)
     
     test_accuracy = check_accuracy(model, X, y_truth, y_pred)
     

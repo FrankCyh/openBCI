@@ -121,7 +121,7 @@ def read_and_select_columns_txt(folder_path, columns):
                                 selected_data = []
                                 sample_counter = 0
 
-        return np.array(data).astype(float), np.array(label).astype(float)
+        return np.array(data).astype(float), label
 
     except FileNotFoundError:
         print(f"Error: File not found at {txt_path}")
