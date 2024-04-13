@@ -136,3 +136,24 @@ def val_batch(model, batch, batch_size):
         pred = pred.cpu().detach().numpy().reshape(-1)
         pred = np.array([1 if n >= 0.5 else 0 for n in pred])
         return pred
+
+def val_batch_confidence(model, batch, batch_size):
+
+    with torch.no_grad():
+
+        # forward pass
+        ##x = torch.FloatTensor([i for i in batch[:, 0]]).cuda()
+        ##x = torch.FloatTensor([i for i in batch[:, 0]])
+        x_numpy_array = np.array([i for i in batch[:, 0]])##
+        x = torch.FloatTensor(x_numpy_array)##
+        _, height, width = x.size()
+        x = x.view(min(batch_size, len(x)), 1, height, width)
+        ##y = torch.FloatTensor([i for i in batch[:, 1]]).cuda()
+        ##y = torch.FloatTensor([i for i in batch[:, 1]])
+        y_numpy_array = np.array([i for i in batch[:, 1]])##
+        y = torch.FloatTensor(y_numpy_array)##
+        pred_confidence = model(x)
+
+        pred_confidence = pred_confidence.cpu().detach().numpy().reshape(-1)
+        pred = np.array([1 if n >= 0.5 else 0 for n in pred_confidence])
+        return pred_confidence, pred

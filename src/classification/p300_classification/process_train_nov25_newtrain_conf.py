@@ -1,5 +1,5 @@
-# Newest Update: Balance dataset by duplicate target data 5 times;
-# Train for 10000 epochs and save intermediate models
+# Difference with process_train_nov25_newtrain:
+# After training, immediately load model and check prediction confidence
 
 import os
 import pandas as pd
@@ -343,3 +343,46 @@ if True:
     dummy_input = torch.randn(1, 1, 125, 5)
     onnx_path = os.path.join('saved_models', 'final.onnx')
     torch.onnx.export(model, dummy_input, onnx_path)
+
+
+
+# ================== load the saved state dictionary as pretrained model, and set to evaluation mode ==================
+
+model = ConvNet()
+
+pretrained_model_name = f'final_model_epoch_{epoch}_bs_{batch_size}-newtrain-4people-conf.pth'
+pretrained_model_path = os.path.join('saved_models', pretrained_model_name)
+model.load_state_dict(torch.load(pretrained_model_path))
+
+model.eval()
+
+
+
+# ================================ testing on each person's data or the whole dataset =================================
+
+batch_size = 128  # same as training
+
+test_pred_conf = []
+test_pred = []
+
+for b in minibatch(test_data, batch_size):
+    test_batch_pred_conf, test_batch_pred = val_batch_confidence(model, b, batch_size)
+    test_pred_conf.append(test_batch_pred_conf)
+    test_pred.append(test_batch_pred)
+
+test_pred_conf = np.concatenate(test_pred_conf, axis=0)
+test_pred = np.concatenate(test_pred, axis=0)
+test_target = test_data[:, 1].reshape(-1)
+
+# print result
+# print(len(test_pred_conf), len(test_pred), len(test_target))
+# print("\nPrediction Confidence\tPredicton\tTarget")
+# for i in range(len(test_target)):
+#     print(f"{test_pred_conf[i]}\t{test_pred[i]}\t\t{test_target[i]}")
+
+# store test result in test_result.txt
+with open('output\\test_result.txt', 'w') as f:
+    f.write(f"{len(test_pred_conf)}, {len(test_pred)}, {len(test_target)}\n")
+    f.write("\nPrediction Confidence\tPredicton\tTarget\n")
+    for i in range(len(test_target)):
+        f.write(f"{test_pred_conf[i]}\t\t{test_pred[i]}\t\t\t{test_target[i]}\n")

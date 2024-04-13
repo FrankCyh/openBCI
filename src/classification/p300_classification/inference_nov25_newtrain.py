@@ -1,5 +1,12 @@
-# Newest Update: Balance dataset by duplicate target data 5 times;
-# Train for 10000 epochs and save intermediate models
+# Used for testing trained model on each person's data
+# Difference with process_train_nov25_newtrain:
+# Add: data_four_person_separate
+# Delete: print statements for debugging
+# Delete: schuffle and split data
+# Change: train to inference
+# Change: calculate accuracy to print confidence score of each prediction
+# Delete: plot training curve
+# Delete: save model
 
 import os
 import pandas as pd
@@ -115,14 +122,6 @@ for filename_pair in load_filename_pair:
         # don't need the line below, as the 3 min constraint is applied for the formatted_timestamp_array
         #absolute_white_timestamps = [t for t in absolute_white_timestamps if t < end_timestamp]
 
-    # print(len(absolute_white_timestamps))
-    # print(absolute_white_timestamps[0])
-    # print(absolute_white_timestamps[-1])
-    # print(end_timestamp)
-
-    # print(len(x_array))
-    # print(len(formatted_timestamp_array))
-
     # Now:
     # x_array: numpy array of electrode data from headset, 5 columns -> 5 electrodes
     # formatted_timestamp_array: list of timestamp of electrode data from headset, same number of rows as x_array
@@ -137,10 +136,6 @@ for filename_pair in load_filename_pair:
 
     while formatted_timestamp_array[data_index] < start_timestamp:
         data_index += 1
-
-    # print(formatted_timestamp_array[data_index - 1])
-    # print(start_timestamp)
-    # print(formatted_timestamp_array[data_index])
 
     data_one_person = []  # for debugging each person's data
 
@@ -170,176 +165,60 @@ for filename_pair in load_filename_pair:
     data_one_person = np.array(data_one_person, dtype=object)
     data_four_person_separate.append(data_one_person)
 
-    # print(data_one_person.shape)
-    # print(data_one_person[0][0].shape)
-    # print(data_one_person[15][1])
-    # print(data_one_person[16][1])
-    # print(data_one_person[17][1])
-    # print(data_one_person[18][1])
-    # print(data_one_person[19][1])
-
-    # for i in range(20):
-    #     if data_one_person[i][1] == 1:
-    #         print(i)
-    #         print(data_one_person[i][2])
-    #         print(data_one_person[i][0][0])
-
 data = np.array(data, dtype=object)
 data_yuhe, data_xiao, data_jiayi, data_leting = data_four_person_separate  # hard-coded order
 
 
 
-# ========================================= Balance, Schuffle and Split Data ==========================================
+# ================== load the saved state dictionary as pretrained model, and set to evaluation mode ==================
 
-# By examing the combined dataset, there is 16.43% target and 83.57% non-target data.
-# To balance target and non-target data, oversample the target data by duplicating each of them 5 times.
-data_unbalanced = data  # save a copy of data before balancing
-
-#print(len(data), data[0].shape, data[0][0].shape, data[0][1])
-data_target_1 = [data_example for data_example in data if data_example[1] == 1]
-data_target_1 = np.array(data_target_1, dtype=object)
-#print(len(data_target_1), data_target_1[0].shape, data_target_1[0][0].shape, data_target_1[0][1])
-
-for i in range(4):
-    data = np.concatenate((data, data_target_1))
-#print(len(data), data[0].shape, data[0][0].shape, data[0][1])
-
-
-# load data
-# data format: [(x, y)]
-data_size = len(data)
-
-# shuffle data
-np.random.seed(1006255446)
-shuffle_idx = np.random.permutation(data_size)
-data = data[shuffle_idx]
-
-# 70-20-10 split train/test
-cutoff_1 = int(data_size * 70 // 100)
-cutoff_2 = int(data_size * 90 // 100)
-train_data = data[:cutoff_1]
-val_data = data[cutoff_1:cutoff_2]
-test_data = data[cutoff_2:]
-
-# check balance label in train_data
-train_data_size = len(train_data)
-train_data_true_count = np.sum([x[1] for x in train_data])
-train_data_false_count = train_data_size - train_data_true_count
-print('train_data_size, train_data_true_count, train_data_false_count:')
-print(train_data_size, train_data_true_count, train_data_false_count)
-
-val_data_size = len(val_data)
-val_data_true_count = np.sum([x[1] for x in val_data])
-val_data_false_count = val_data_size - val_data_true_count
-print('val_data_size, val_data_true_count, val_data_false_count:')
-print(val_data_size, val_data_true_count, val_data_false_count)
-
-test_data_size = len(test_data)
-test_data_true_count = np.sum([x[1] for x in test_data])
-test_data_false_count = test_data_size - test_data_true_count
-print('test_data_size, test_data_true_count, test_data_false_count:')
-print(test_data_size, test_data_true_count, test_data_false_count)
-
-# DON'T NEED TO BALANCE OUR OWN DATASET
-# see colab notebook for balance steps
-
-
-
-# ======================================================= Train =======================================================
-
-batch_size = 128
-
-# for debug
-# np.random.seed(0)
-
-# train helper functions used to be here
-
-epoch = 50000
-
-# init model
 model = ConvNet()
 
-criterion = nn.BCELoss()
-optimizer = torch.optim.Adam(model.parameters(), lr=1e-5 * 2, weight_decay=1e-2)
+pretrained_model_name = 'final_model_epoch_50000_bs_128-newtrain-4people-conf.pth'
+pretrained_model_path = os.path.join('pretrained_models', 'Nov25_balanced_50000', pretrained_model_name)
+model.load_state_dict(torch.load(pretrained_model_path))
 
-model.train()
+model.eval()
 
-# for plotting
-train_acc_list = []
-val_acc_list = []
 
-for curr_epoch in range(epoch):
 
-    # train minibatch
-    train_pred = []
-    train_data_curr = train_data[np.random.permutation(len(train_data))]
-    for b in minibatch(train_data_curr, batch_size):
-        train_batch_pred = train_batch(model, criterion, optimizer, b, batch_size)
-        train_pred.append(train_batch_pred)
-    train_pred = np.concatenate(train_pred, axis=0)
+# ================================ testing on each person's data or the whole dataset =================================
 
-    val_pred = []
-    for b in minibatch(val_data, batch_size):
-        val_batch_pred = val_batch(model, b, batch_size)
-        val_pred.append(val_batch_pred)
-    val_pred = np.concatenate(val_pred, axis=0)
+batch_size = 128  # same as training
 
-    if (curr_epoch + 1) % 100 == 0:
-        # calculate acc
-        train_target = train_data_curr[:, 1].reshape(-1)
-        train_acc = cal_acc(train_pred, train_target)
-        val_target = val_data[:, 1].reshape(-1)
-        val_acc = cal_acc(val_pred, val_target)
-
-        # print stats
-        print(f"epoch: {curr_epoch+1}, train acc: {train_acc}, val acc: {val_acc}")
-
-        # for plotting
-        train_acc_list.append(train_acc)
-        val_acc_list.append(val_acc)
-    
-    if (curr_epoch + 1) >= 1000 and (curr_epoch + 1) % 200 == 0:
-        saved_model_name = f'epoch_{curr_epoch + 1}.pth'
-        saved_model_path = os.path.join('saved_models', saved_model_name)
-        torch.save(model.state_dict(), saved_model_path)
-
-# for plotting
-import matplotlib.pyplot as plt
-# Plotting the training curve
-plt.figure(figsize=(10, 6))
-plt.plot(train_acc_list, label='Training Accuracy')
-plt.plot(val_acc_list, label='Validation Accuracy')
-plt.title('Training and Validation Accuracy per Epoch')
-plt.xlabel('Epoch')
-plt.ylabel('Accuracy')
-plt.legend(loc='upper left')
-plt.grid(True)
-# Save the plot to a file
-plt.savefig('output\\training_curve.png')
-plt.close()
-
-# test acc
-model = model.eval()
+test_pred_conf = []
 test_pred = []
-for b in minibatch(test_data, batch_size):
-    test_batch_pred = val_batch(model, b, batch_size)
+
+for b in minibatch(data_leting, batch_size):
+    test_batch_pred_conf, test_batch_pred = val_batch_confidence(model, b, batch_size)
+    test_pred_conf.append(test_batch_pred_conf)
     test_pred.append(test_batch_pred)
+
+test_pred_conf = np.concatenate(test_pred_conf, axis=0)
 test_pred = np.concatenate(test_pred, axis=0)
-test_target = test_data[:, 1].reshape(-1)
-test_acc = cal_acc(test_pred, test_target)
-test_f_score, test_percision, test_recall = cal_f(test_pred, test_target)
-print(f"test acc: {test_acc}")
-print(f"test percision: {test_percision}, test recall: {test_recall}, test f score: {test_f_score}")
+test_target = data_leting[:, 1].reshape(-1)
 
-# save the last model
-if True:
-    # saved_model_name = f'model_epoch_{epoch}_bs_{batch_size}.pth'
-    saved_model_name = f'final_model_epoch_{epoch}_bs_{batch_size}-newtrain-4people-conf.pth'
-    saved_model_path = os.path.join('saved_models', saved_model_name)
-    torch.save(model.state_dict(), saved_model_path)
 
-    # export to onnx
-    model.eval()
-    dummy_input = torch.randn(1, 1, 125, 5)
-    onnx_path = os.path.join('saved_models', 'final.onnx')
-    torch.onnx.export(model, dummy_input, onnx_path)
+print(len(test_pred_conf), len(test_pred), len(test_target))
+
+# print each prediction result and summarize
+print("\nPrediction Confidence\tPredicton\tTarget")
+total_count, tp, tn, fp, fn = 0, 0, 0, 0, 0
+for i in range(len(test_target)):
+    print(f"{test_pred_conf[i]}\t{test_pred[i]}\t\t{test_target[i]}")
+
+    total_count += 1
+    if test_pred[i] == 1 and test_target[i] == 1:
+        tp += 1
+    elif test_pred[i] == 0 and test_target[i] == 0:
+        tn += 1
+    elif test_pred[i] == 1 and test_target[i] == 0:
+        fp += 1
+    elif test_pred[i] == 0 and test_target[i] == 1:
+        fn += 1
+print(f'\nTotal: {total_count}')
+print(f'True Positive: {tp}')
+print(f'True Negative: {tn}')
+print(f'False Positive: {fp}')
+print(f'False Negative: {fn}')
+print(f'Accuracy: {(tp + tn) / total_count}')
